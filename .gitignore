@@ -1,0 +1,52 @@
+# Quarto-Ausgabe und lokale Zwischendateien
+/_book/
+/_book-public/
+/.quarto/
+/_freeze/
+/*_cache/
+/*_files/
+
+# Lokale R- und RStudio-Dateien
+.RData
+.Rhistory
+.Rproj.user/
+
+# Große lokale Fernerkundungsdaten
+/Sentinel-Daten/
+
+# Temporäre Dateien von QGIS und GeoPackage
+*.qgz~
+*.qgs~
+*.gpkg-shm
+*.gpkg-wal
+
+# Betriebssystem und Editoren
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.bak
+
+**/*.quarto_ipynb
+
+# Noch nicht veroeffentlichte lokale Inhalte
+/_quarto-dev.yml
+/apa.csl
+/references.bib
+/sentinel_demo/
+/einheiten/*
+!/einheiten/01-qgis-plugin-installation.qmd
+!/einheiten/02-recherche-download-satellitenbild.qmd
+/assets/*
+!/assets/FE-FO-Logo.svg
+!/assets/FE-FO-Logo-white.svg
+!/assets/icons/
+!/assets/screenshots/
+/assets/icons/*
+!/assets/icons/scp-icon.png
+/assets/screenshots/*
+!/assets/screenshots/fernerkundungsprozess.png
+!/assets/screenshots/datenrecherche/
+/assets/screenshots/datenrecherche/*
+!/assets/screenshots/datenrecherche/copernicus-sentinel2-download.png
+!/assets/screenshots/datenrecherche/copernicus-sentinel2-suche.png

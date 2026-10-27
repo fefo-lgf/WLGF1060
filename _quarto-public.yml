@@ -1,0 +1,14 @@
+project:
+  output-dir: _book-public
+  render:
+    - einheiten/01-qgis-plugin-installation.qmd
+    - einheiten/02-recherche-download-satellitenbild.qmd
+
+book:
+  chapters:
+    - part: "Einstieg und Datenaufbereitung"
+      chapters:
+        - href: einheiten/01-qgis-plugin-installation.qmd
+          text: "QGIS und Plugin-Installation"
+        - href: einheiten/02-recherche-download-satellitenbild.qmd
+          text: "Recherche und Download eines Satellitenbildes"
