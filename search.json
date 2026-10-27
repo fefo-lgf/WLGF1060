@@ -1,0 +1,88 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Fernerkundung in der Forstwirtschaft",
+    "section": "",
+    "text": "Willkommen\nDieses Kursbuch ist Teil des freien Wahlmoduls Fernerkundung in der Forstwirtschaft im BSc Studiengang Forstwirtschaft an der Fachhochschule Erfurt.",
+    "crumbs": [
+      "Willkommen"
+    ]
+  },
+  {
+    "objectID": "index.html#aufbau",
+    "href": "index.html#aufbau",
+    "title": "Fernerkundung in der Forstwirtschaft",
+    "section": "Aufbau",
+    "text": "Aufbau\nDas Buch ist als begleitendes Medium zur Grundlagenvorlesung und der Nachbereitung der Übungen am PC gedacht. Der Aufbau orientiert sich am klassischen Ablauf eines Fernerkundungsverfahrens (s. Abbildung 1). Ein Großteil der Übungen widmet sich einer spezifischen Fragestellung aus dem Forstalltag. Dabei stehen sowohl Auswertungen von digitalen Luft- und Satellitenbildern als auch 3D-Daten im Mittelpunkt. Zum Ende der letzten Einheit sollten Sie die erlernten Inhalte auf eigene forstliche Fragestellungen übertragen können.\n\n\n\n\n\n\nAbbildung 1: Grundlegender Ablauf eines Fernerkundungsverfahrens",
+    "crumbs": [
+      "Willkommen"
+    ]
+  },
+  {
+    "objectID": "einheiten/01-qgis-plugin-installation.html",
+    "href": "einheiten/01-qgis-plugin-installation.html",
+    "title": "1  QGIS und Plugin-Installation",
+    "section": "",
+    "text": "1.1 QGIS und SCP installieren\nIm Modul arbeiten wir durchgehend mit der OpenSource Software QGIS und dem Semi-Automatic Classification Plugin (SCP).\nDas Plugin bündelt zentrale Arbeitsschritte der Fernerkundung in QGIS, darunter Vorverarbeitung, Bandverwaltung, Indexberechnungen und Klassifikationsalgorithmen. Wir nutzen es vornehmlich zur Vorverarbeitung und Auswertung von Satellitendaten.",
+    "crumbs": [
+      "Einstieg und Datenaufbereitung",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>QGIS und Plugin-Installation</span>"
+    ]
+  },
+  {
+    "objectID": "einheiten/01-qgis-plugin-installation.html#qgis-und-scp-installieren",
+    "href": "einheiten/01-qgis-plugin-installation.html#qgis-und-scp-installieren",
+    "title": "1  QGIS und Plugin-Installation",
+    "section": "",
+    "text": "1.1.1 QGIS installieren\n\nLaden Sie QGIS von qgis.org herunter.\nNutzen Sie für den Kurs die aktuelle Long Term Release (LTR) 3.44.11-Solothurn.\nInstallieren Sie QGIS mit den Standardeinstellungen.\n\n\n\n1.1.2 QGIS auf Englisch stellen\nEs wird empfohlen, QGIS auf englisch zu installieren, um bei Fehlermeldungen auf einen größeren Wissensschatz der QGIS-Community zurückzugreifen.\n\nÖffnen Sie Settings &gt; Options….\nWechseln Sie links zu General.\nAktivieren Sie Override system locale.\nWählen Sie als User interface translation English.\nBestätigen Sie mit OK und starten Sie QGIS neu.\n\n\n\n1.1.3 Plugin installieren\n\nÖffnen Sie in QGIS Plugins &gt; Manage and Install Plugins….\nWechseln Sie links auf All.\nGeben Sie in das Suchfeld Semi-Automatic Classification Plugin ein.\nKlicken Sie den Eintrag Semi-Automatic Classification Plugin an. \nKlicken Sie auf Install Plugin.\nWechseln Sie links auf Installed.\nPrüfen Sie, ob beim Semi-Automatic Classification Plugin die Checkbox aktiviert ist.\nSchließen Sie den Plugin Manager.",
+    "crumbs": [
+      "Einstieg und Datenaufbereitung",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>QGIS und Plugin-Installation</span>"
+    ]
+  },
+  {
+    "objectID": "einheiten/01-qgis-plugin-installation.html#projektstruktur",
+    "href": "einheiten/01-qgis-plugin-installation.html#projektstruktur",
+    "title": "1  QGIS und Plugin-Installation",
+    "section": "1.2 Projektstruktur",
+    "text": "1.2 Projektstruktur\nLegen Sie zu Beginn einen Projektordner in Ihrem Home-Directory an:\nFEFO2627/\n├── 00_projekte/\n├── 01_rohdaten/\n├── 02_vorverarbeitung/\n├── 03_vektordaten/\n├── 04_ergebnisse/\n├── 05_layouts/\n\n\n\n\n\n\nHinweisInfo\n\n\n\nArbeiten Sie stets mit kurzen, prägnanten Datei- und Ordnernamen ohne Leerzeichen und Umlaute (ä,ö,ü).",
+    "crumbs": [
+      "Einstieg und Datenaufbereitung",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>QGIS und Plugin-Installation</span>"
+    ]
+  },
+  {
+    "objectID": "einheiten/02-recherche-download-satellitenbild.html",
+    "href": "einheiten/02-recherche-download-satellitenbild.html",
+    "title": "2  Recherche und Download eines Satellitenbildes",
+    "section": "",
+    "text": "2.1 Copernicus-Konto erstellen\nSentinel-2 Satellitenbilder können im Copernicus Browser kostenfrei heruntergeladen werden. Hierfür wird ein kostenloses Konto benötigt.",
+    "crumbs": [
+      "Einstieg und Datenaufbereitung",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Recherche und Download eines Satellitenbildes</span>"
+    ]
+  },
+  {
+    "objectID": "einheiten/02-recherche-download-satellitenbild.html#copernicus-konto-erstellen",
+    "href": "einheiten/02-recherche-download-satellitenbild.html#copernicus-konto-erstellen",
+    "title": "2  Recherche und Download eines Satellitenbildes",
+    "section": "",
+    "text": "Öffnen Sie https://dataspace.copernicus.eu/.\nKlicken Sie oben rechts auf das Avatar- oder Login-Symbol.\nKlicken Sie auf REGISTER.\nFüllen Sie alle Pflichtfelder aus. Nutzen Sie möglichst Ihre Hochschul-E-Mail-Adresse.\nAkzeptieren Sie die Nutzungsbedingungen und die Datenschutzerklärung.\nSchließen Sie die Registrierung mit REGISTER ab.\nÖffnen Sie die Bestätigungs-E-Mail und klicken Sie auf den Verifizierungslink.\nMelden Sie sich danach im Copernicus Browser mit E-Mail-Adresse und Passwort an.",
+    "crumbs": [
+      "Einstieg und Datenaufbereitung",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Recherche und Download eines Satellitenbildes</span>"
+    ]
+  },
+  {
+    "objectID": "einheiten/02-recherche-download-satellitenbild.html#sentinel-2-daten-beschaffen",
+    "href": "einheiten/02-recherche-download-satellitenbild.html#sentinel-2-daten-beschaffen",
+    "title": "2  Recherche und Download eines Satellitenbildes",
+    "section": "2.2 Sentinel-2-Daten beschaffen",
+    "text": "2.2 Sentinel-2-Daten beschaffen\n\n\n\n\n\n\nHinweisInfo\n\n\n\nEs gibt mehrere Wege, Sentinel Daten herunterzuladen. Der Copernicus Browser eignet sich zum Erkunden der Szenen. SCP ist praktisch, wenn die Daten direkt in QGIS weiterverarbeitet werden sollen und Sie grob wissen, welche Szenen Sie benötigen. In dieser Übung verwenden wir den Weg über den Copernicus Browser.\n\n\n\nCopernicus BrowserSCP in QGIS\n\n\n\nÖffnen Sie den Copernicus Browser.\nMelden Sie sich mit Ihrem Copernicus-Konto an.\nSuchen Sie rechts oben nach Gösselsdorf oder zoomen Sie zur Saalfelder Höhe.\nWählen Sie links im Tab Search die Data collection Sentinel-2.\nWählen Sie als Processing level L2A, da diese Daten bereits atmosphärisch korrigiert sind.\nLassen Sie den Wolkenanteil bei 100 %.\n\n\n\n\n\n\n\nAbbildung 2.1: Auswahl des Datensatzes Sentinel-2 L2A im Copernicus Browser.\n\n\n\n\n\n\n\n\n\nHinweisCheckpoint\n\n\n\nIst ein hoher Wolkenanteil im gesamten Sentinel-2-Produkt automatisch ein Ausschlusskriterium?\n\n\n\nStellen Sie den Zeitraum 2025-06-01 bis 2025-06-30 ein.\nÖffnen Sie geeignete Treffer in der Vorschau und prüfen Sie, ob der Untersuchungsraum wolkenfrei sichtbar ist.\nKlicken Sie die Szene vom 14.06.2025 in der Ergebnisliste an. Die zugehörige Kachel wird als blaue Fläche auf der Karte hervorgehoben.\nKlicken Sie beim Treffer rechts unten auf das Download-Symbol mit dem nach unten gerichteten Pfeil.\n\n\n\n\n\n\n\nAbbildung 2.2: Auswahl der Sentinel-2-L2A-Szene vom 14.06.2025 und Download im Copernicus Browser.\n\n\n\n\nWarten Sie, bis der Fortschrittsbalken unter dem Produkt vollständig durchgelaufen ist. Lassen Sie den Browser währenddessen geöffnet.\nSpeichern Sie das heruntergeladene Produkt als .ZIP-Datei im Ordner 01_rohdaten/sentinel2/2025-06-14 ab.\nBehalten Sie den ursprünglichen (sehr langen) Produktnamen zunächst bei und entpacken Sie die ZIP-Datei im gleichen Ordner. Falls der Dateipfad beim Entpacken zu lang wird, können Sie den Namen des äußeren .ZIP-Ordners selbst kürzen, z.B. “S2C_MSIL2A_20250614T142405.SAFE”\n\n\n\nSentinel-2-Daten können auch direkt im Semi-Automatic Classification Plugin gesucht und heruntergeladen werden.\n\nZugangsdaten in SCP eintragen\n\nÖffnen Sie QGIS\nÖffnen Sie View &gt; Panels &gt; SCP Dock, falls das SCP-Dock nicht sichtbar ist.\nÖffnen Sie SCP &gt; Download products.\nWechseln Sie zum Tab Login data.\nTragen Sie unter Copernicus Data Space Ecosystem Ihre Zugangsdaten ein.\nLassen Sie remember deaktiviert, wenn Sie an einem Pool- oder Seminarraumrechner arbeiten.\n\n\n\n\n\n\n\nWarnungPasswort nicht unnötig speichern\n\n\n\nSCP weist darauf hin, dass gespeicherte Passwörter lokal in QGIS abgelegt werden können. Auf Hochschul- oder gemeinsam genutzten Rechnern sollten Zugangsdaten daher nicht dauerhaft gespeichert werden.\n\n\n\n\nSentinel-2 in SCP suchen\n\nÖffnen Sie SCP &gt; Download products.\nWechseln Sie zum Tab Search.\nWählen Sie als Product Sentinel-2.\nDefinieren Sie die search area über die Karte oder über die Koordinaten für UL und LR. Sie soll die AOI (Untersuchungsraum) Saalfelder Höhe abdecken.\nStellen Sie den Zeitraum 2025-06-01 bis 2025-06-30 ein.\nLassen Sie Max cloud cover (%) auf 100.\nStarten Sie die Suche mit Find.\nPrüfen Sie Datum, Wolkenanteil und Kachelvorschau.\n\n\n\nSentinel-2 in SCP herunterladen\n\nMarkieren Sie die geeignete Juni-Szene in der Produktliste.\nWählen Sie alle benötigten bands aus.\nAktivieren Sie Ancillary data, um Metadaten mitzuladen.\nAktivieren Sie Load bands in QGIS, wenn die bands nach dem Download direkt in QGIS erscheinen sollen.\nWählen Sie den Output directory 01_rohdaten/sentinel2/2025-06-14.\nStarten Sie den Download mit RUN.\n\n\n\n\n\n\n\n\n\n\n\nHinweisCheckpoint\n\n\n\nWelcher Sentinel-Satellit hat die von Ihnen heruntergeladene Szene aufgenommen?",
+    "crumbs": [
+      "Einstieg und Datenaufbereitung",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Recherche und Download eines Satellitenbildes</span>"
+    ]
+  }
+]
