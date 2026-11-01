@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>3&nbsp; Vorverarbeitung – Fernerkundung in der Forstwirtschaft</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../einheiten/02-recherche-download-satellitenbild.html" rel="prev">
+<link href="../assets/FE-FO-Logo-white.svg" rel="icon" type="image/svg+xml">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-8dbd7e8bcd31c36f7d152bcb14fdbedf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-2e7abb9246e5788d41c68d5b96d29db8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-8dbd7e8bcd31c36f7d152bcb14fdbedf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../einheiten/01-qgis-plugin-installation.html">Einstieg und Datenaufbereitung</a></li><li class="breadcrumb-item"><a href="../einheiten/03-vorverarbeitung.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Vorverarbeitung</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../assets/FE-FO-Logo.svg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../assets/FE-FO-Logo.svg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">&nbsp;</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Dunkelmodus umschalten"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Suchen"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Willkommen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Einstieg und Datenaufbereitung</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../einheiten/01-qgis-plugin-installation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">QGIS und Plugin-Installation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../einheiten/02-recherche-download-satellitenbild.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Recherche und Download eines Satellitenbildes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../einheiten/03-vorverarbeitung.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Vorverarbeitung</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Inhaltsverzeichnis</h2>
+   
+  <ul>
+  <li><a href="#bandspezifikationen" id="toc-bandspezifikationen" class="nav-link active" data-scroll-target="#bandspezifikationen"><span class="header-section-number">3.1</span> Bandspezifikationen</a></li>
+  <li><a href="#vorprozessierung-eines-satellitenbildes" id="toc-vorprozessierung-eines-satellitenbildes" class="nav-link" data-scroll-target="#vorprozessierung-eines-satellitenbildes"><span class="header-section-number">3.2</span> Vorprozessierung eines Satellitenbildes</a>
+  <ul class="collapse">
+  <li><a href="#bänder-für-scp-vorbereiten" id="toc-bänder-für-scp-vorbereiten" class="nav-link" data-scroll-target="#bänder-für-scp-vorbereiten"><span class="header-section-number">3.2.1</span> Bänder für SCP vorbereiten</a></li>
+  <li><a href="#vorprozessierung-in-scp" id="toc-vorprozessierung-in-scp" class="nav-link" data-scroll-target="#vorprozessierung-in-scp"><span class="header-section-number">3.2.2</span> Vorprozessierung in SCP</a></li>
+  <li><a href="#band-set-und-virtual-raster-in-scp-erstellen" id="toc-band-set-und-virtual-raster-in-scp-erstellen" class="nav-link" data-scroll-target="#band-set-und-virtual-raster-in-scp-erstellen"><span class="header-section-number">3.2.3</span> Band Set und Virtual Raster in SCP erstellen</a></li>
+  <li><a href="#farbdarstellungen-prüfen" id="toc-farbdarstellungen-prüfen" class="nav-link" data-scroll-target="#farbdarstellungen-prüfen"><span class="header-section-number">3.2.4</span> Farbdarstellungen prüfen</a></li>
+  <li><a href="#auf-aoi-zuschneiden" id="toc-auf-aoi-zuschneiden" class="nav-link" data-scroll-target="#auf-aoi-zuschneiden"><span class="header-section-number">3.2.5</span> Auf AOI zuschneiden</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../einheiten/01-qgis-plugin-installation.html">Einstieg und Datenaufbereitung</a></li><li class="breadcrumb-item"><a href="../einheiten/03-vorverarbeitung.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Vorverarbeitung</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Vorverarbeitung</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Satellitendaten bestehen zunächst aus einzelnen Bändern mit digitalen Grauwerten (DN) und den zugehörigen Metadaten. Vor der Berechnung von Indizes -und insbesondere einer Zeitreihenanalyse- müssen diese digitalen Grauwerte der Bänder in ihre Reflektanzwerte überführt und als gemeinsamer Datensatz zusammengeführt werden. Die Vorprozessierung schafft daher eine vergleichbare Ausgangsbasis für jegliche fernerkundungsbasierte Analysen.</p>
+<section id="bandspezifikationen" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="bandspezifikationen"><span class="header-section-number">3.1</span> Bandspezifikationen</h2>
+<p>In den nächsten Einheiten wird mit folgenden Bändern gearbeitet:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 28%">
+<col style="width: 28%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Band</th>
+<th style="text-align: right;">Spektralbereich</th>
+<th style="text-align: right;">Auflösung</th>
+<th>Verwendung</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>B02</td>
+<td style="text-align: right;">Blau</td>
+<td style="text-align: right;">10 m</td>
+<td>Echtfarben, Atmosphäre/Trübung</td>
+</tr>
+<tr class="even">
+<td>B03</td>
+<td style="text-align: right;">Grün</td>
+<td style="text-align: right;">10 m</td>
+<td>Echtfarben, Wasser-/Vegetationskontraste</td>
+</tr>
+<tr class="odd">
+<td>B04</td>
+<td style="text-align: right;">Rot</td>
+<td style="text-align: right;">10 m</td>
+<td>Echtfarben, NDVI</td>
+</tr>
+<tr class="even">
+<td>B05</td>
+<td style="text-align: right;">Red Edge 1</td>
+<td style="text-align: right;">20 m</td>
+<td>Vegetationszustand, Baumartenunterschiede</td>
+</tr>
+<tr class="odd">
+<td>B06</td>
+<td style="text-align: right;">Red Edge 2</td>
+<td style="text-align: right;">20 m</td>
+<td>Vegetationsstruktur, Kronenunterschiede</td>
+</tr>
+<tr class="even">
+<td>B07</td>
+<td style="text-align: right;">Red Edge 3</td>
+<td style="text-align: right;">20 m</td>
+<td>Vegetationsvitalität, Klassifikation</td>
+</tr>
+<tr class="odd">
+<td>B08</td>
+<td style="text-align: right;">Nahes Infrarot breit</td>
+<td style="text-align: right;">10 m</td>
+<td>Vegetation, NDVI</td>
+</tr>
+<tr class="even">
+<td>B8A</td>
+<td style="text-align: right;">Nahes Infrarot schmal</td>
+<td style="text-align: right;">20 m</td>
+<td>Vegetationszustand, Klassifikation</td>
+</tr>
+<tr class="odd">
+<td>B11</td>
+<td style="text-align: right;">SWIR 1</td>
+<td style="text-align: right;">20 m</td>
+<td>Feuchte, Trockenstress</td>
+</tr>
+<tr class="even">
+<td>B12</td>
+<td style="text-align: right;">SWIR 2</td>
+<td style="text-align: right;">20 m</td>
+<td>trockene Oberflächen, Vegetationsunterschiede</td>
+</tr>
+</tbody>
+</table>
+<p>Die Bänder behalten bei der Vorprozessierung ihre räumliche Auflösung von 10 beziehungsweise 20 m. Das SCP-Plugin verwaltet die Bänder zunächst gemeinsam in einem so genannten Band Set und erzeugt daraus die Inputlayer für die Geoverarbeitung.</p>
+</section>
+<section id="vorprozessierung-eines-satellitenbildes" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="vorprozessierung-eines-satellitenbildes"><span class="header-section-number">3.2</span> Vorprozessierung eines Satellitenbildes</h2>
+<section id="bänder-für-scp-vorbereiten" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="bänder-für-scp-vorbereiten"><span class="header-section-number">3.2.1</span> Bänder für SCP vorbereiten</h3>
+<p>Sentinel-2-L2A-Daten werden als SAFE-Ordnerstruktur bereitgestellt. Bilddaten im Format <code>.jp2</code> und Metadaten im Format <code>.xml</code> liegen darin in verschiedenen Unterordnern. Für die Vorprozessierung im SCP-Plugin werden die benötigten Bänder und die zugehörige Metadatendatei aus dieser Struktur in einen gemeinsamen Arbeitsordner kopiert.</p>
+<div id="fig-sentinel-safe-struktur" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Schematische Ordnerstruktur eines Sentinel-2-Produkts mit den Bereichen AUX_DATA, DATASTRIP, GRANULE, HTML und rep_info sowie Bilddaten im JP2-Format und Metadaten im XML-Format.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sentinel-safe-struktur-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/screenshots/03-vorverarbeitung/00-sentinel-safe-struktur.png" class="img-fluid figure-img" style="width:85.0%" alt="Schematische Ordnerstruktur eines Sentinel-2-Produkts mit den Bereichen AUX_DATA, DATASTRIP, GRANULE, HTML und rep_info sowie Bilddaten im JP2-Format und Metadaten im XML-Format.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sentinel-safe-struktur-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;3.1: Vereinfachte Ordnerstruktur eines entpackten Sentinel-2-SAFE-Produkts.
+</figcaption>
+</figure>
+</div>
+<p>Nach der <a href="https://semiautomaticclassificationmanual.readthedocs.io/en/latest/faq.html#can-i-apply-the-conversion-to-sentinel-2-l2a-downloaded-from-the-web">SCP-FAQ</a> muss die Bandnummer den alleinigen Dateinamen bilden, zum Beispiel <code>B02.jp2</code>.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Originaltyp</th>
+<th>Zielname</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>..._B02_10m.jp2</code></td>
+<td><code>B02.jp2</code></td>
+</tr>
+<tr class="even">
+<td><code>..._B03_10m.jp2</code></td>
+<td><code>B03.jp2</code></td>
+</tr>
+<tr class="odd">
+<td><code>..._B04_10m.jp2</code></td>
+<td><code>B04.jp2</code></td>
+</tr>
+<tr class="even">
+<td><code>...</code></td>
+<td><code>BXX.jp2</code></td>
+</tr>
+</tbody>
+</table>
+<ol type="1">
+<li>Legen Sie den Ordner <code>01_rohdaten/S2_20250614</code> an.</li>
+<li>Kopieren Sie die benötigten <code>.jp2</code>-Bänder und die zugehörige Metadatendatei <code>MTD_MSIL2A</code> in diesen Ordner. Alle Dateien müssen auf derselben Ordnerebene liegen.</li>
+<li>Benennen Sie die <code>.jp2</code>-Bänder nach dem Zielschema der obigen Tabelle um.</li>
+</ol>
+</section>
+<section id="vorprozessierung-in-scp" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="vorprozessierung-in-scp"><span class="header-section-number">3.2.2</span> Vorprozessierung in SCP</h3>
+<p>Öffnen Sie QGIS und speichern Sie das Projekt als <code>einheit_3.qgz</code>.</p>
+<p>Die Vorprozessierung erfolgt in SCP anhand der Sentinel-2-Metadaten. Bei einem Level-2A-Produkt wendet der Befehl <strong>Image conversion</strong> die hinterlegten Skalierungsfaktoren an und überführt die digitalen Grauwerte (DN) in Reflektanzwerte.</p>
+<ol type="1">
+<li>Öffnen Sie <span class="qgis-command">SCP &gt; Preprocessing &gt; Image conversion</span>.</li>
+<li>Wählen Sie unter <strong>Directory containing bands</strong> den vorbereiteten Ordner <code>01_rohdaten/S2_20250614</code>.</li>
+<li>Falls die Metadaten nicht automatisch erkannt werden, wählen Sie unter <strong>Select metadata file (optional)</strong> <code>MTD_MSIL2A</code> aus demselben Ordner.</li>
+<li>Prüfen Sie in der Tabelle <strong>Metadata</strong>, ob <strong>Sentinel-2</strong>, <strong>Level-2A</strong> und die Bänder <code>B02</code>, <code>B03</code>, <code>B04</code>, <code>B05</code>, <code>B06</code>, <code>B07</code>, <code>B08</code>, <code>B8A</code>, <code>B11</code> und <code>B12</code> erkannt wurden.</li>
+<li>Lassen Sie <strong>Use value as NoData</strong> mit dem Wert <code>0</code> aktiviert. Aktivieren Sie <strong>Apply DOS1 atmospheric correction</strong> nicht, da bereits ein Level-2A-Produkt verwendet wird.</li>
+<li>Aktivieren Sie <strong>Create Band set and use Band set tools</strong> und wählen Sie <strong>Create a new Band set</strong>.</li>
+<li>Klicken Sie auf <strong>RUN</strong> und speichern Sie die Ausgaben im Ordner <code>02_vorverarbeitung/S2_20250614_prep</code>.</li>
+<li>Prüfen Sie, ob die erzeugten Reflektanzbänder mit dem Präfix <code>RT_</code> in QGIS geladen und einem neuen Band Set zugeordnet wurden.</li>
+</ol>
+<div id="fig-scp-preprocessing" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Geöffnetes SCP-Werkzeug Image conversion mit erkannten Sentinel-2-Metadaten; die persönlichen Dateipfade sind unkenntlich gemacht.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-scp-preprocessing-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/screenshots/03-vorverarbeitung/01-scp-preprocessing.png" class="img-fluid figure-img" style="width:100.0%" alt="Geöffnetes SCP-Werkzeug Image conversion mit erkannten Sentinel-2-Metadaten; die persönlichen Dateipfade sind unkenntlich gemacht.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scp-preprocessing-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;3.2: Vorprozessierung von Sentinel-2-L2A-Daten mit <strong>Image conversion</strong> in SCP.
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Info">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Info
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Die erzeugten <code>RT_</code>-Bänder behalten ihre räumliche Auflösung. Bänder mit 10 und 20 m Pixelgröße dürfen deshalb im Band Set gemeinsam vorkommen.</p>
+</div>
+</div>
+</section>
+<section id="band-set-und-virtual-raster-in-scp-erstellen" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="band-set-und-virtual-raster-in-scp-erstellen"><span class="header-section-number">3.2.3</span> Band Set und Virtual Raster in SCP erstellen</h3>
+<p>Nach der Konvertierung enthält die Szene ein eigenes Band Set. Darin werden Reihenfolge, Wellenlängen und Aufnahmedatum geprüft.</p>
+<ol type="1">
+<li>Öffnen Sie <span class="qgis-command">SCP &gt; Band set</span>.</li>
+<li>Wählen Sie in der <strong>Band set table</strong> das Band Set vom 14. Juni 2025 und setzen Sie es als <strong>Active band set</strong>.</li>
+<li>Prüfen Sie in der <strong>Band set definition</strong> die Reihenfolge: <code>RT_B02</code>, <code>RT_B03</code>, <code>RT_B04</code>, <code>RT_B05</code>, <code>RT_B06</code>, <code>RT_B07</code>, <code>RT_B08</code>, <code>RT_B8A</code>, <code>RT_B11</code>, <code>RT_B12</code>.</li>
+<li>Prüfen Sie die <strong>Center wavelength</strong>. Falls die Werte fehlen, wählen Sie unter <strong>Band quick settings &gt; Wavelength</strong> die Vorlage <strong>Sentinel-2</strong>.</li>
+<li>Tragen Sie unter <strong>Date</strong> das Aufnahmedatum der Szene ein.</li>
+<li>Aktivieren Sie unter <strong>Band set tools</strong> die Optionen <strong>Create virtual raster of band set</strong> und <strong>Create raster of band set (stack bands)</strong>. Dadurch wird das Band Set lokal gespeichert. Aktivieren Sie zusätzlich <strong>Build band overviews</strong>.</li>
+<li>Klicken Sie auf <strong>RUN</strong> und speichern Sie die Ausgaben im Ordner <code>02_vorverarbeitung/S2_20250614_prep/</code>, zum Beispiel als <code>S2_20250614_bandset.vrt</code> und <code>S2_20250614_stack.tif</code>.</li>
+</ol>
+<div id="fig-scp-bandset" class="quarto-float quarto-figure quarto-figure-center anchored" alt="SCP Band set definition mit zehn vorprozessierten Sentinel-2-Bändern, zugeordneten Zentralwellenlängen sowie aktivierten Optionen Create virtual raster of band set, Create raster of band set und Build band overviews.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-scp-bandset-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/screenshots/03-vorverarbeitung/02-build-virtual-raster.png" class="img-fluid figure-img" style="width:100.0%" alt="SCP Band set definition mit zehn vorprozessierten Sentinel-2-Bändern, zugeordneten Zentralwellenlängen sowie aktivierten Optionen Create virtual raster of band set, Create raster of band set und Build band overviews.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scp-bandset-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;3.3: Band Set mit den vorprozessierten Sentinel-2-Bändern.
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Info">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Info
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ein Virtual Raster (<code>.vrt</code>) ist zunächst nur eine Verknüpfung auf die einzelnen Rasterdateien. Das spart Speicherplatz und ist für die Arbeit im Kurs meist ausreichend. Der zusätzlich erzeugte Bandstack ist eine physische Rasterdatei und kann unabhängig von den einzelnen Quelldateien weitergegeben werden.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Info">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Info
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Mit dem SCP-Bandstack entsteht in QGIS eine neue, fortlaufende Bandreihenfolge. Die ursprünglichen Sentinel-2-Nummern bleiben nicht erhalten, weil nicht benötigte Bänder wie Aerosol, Wasserdampf und Cirrus fehlen. Ab diesem Punkt beziehen sich Bandnummern in QGIS-Befehlen immer auf die Position im folgenden Stack:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Sentinel-2-Band</th>
+<th style="text-align: right;">QGIS-Stackband</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>B02</code> (Blau)</td>
+<td style="text-align: right;">Band 1</td>
+</tr>
+<tr class="even">
+<td><code>B03</code> (Grün)</td>
+<td style="text-align: right;">Band 2</td>
+</tr>
+<tr class="odd">
+<td><code>B04</code> (Rot)</td>
+<td style="text-align: right;">Band 3</td>
+</tr>
+<tr class="even">
+<td><code>B05</code> (Red Edge 1)</td>
+<td style="text-align: right;">Band 4</td>
+</tr>
+<tr class="odd">
+<td><code>B06</code> (Red Edge 2)</td>
+<td style="text-align: right;">Band 5</td>
+</tr>
+<tr class="even">
+<td><code>B07</code> (Red Edge 3)</td>
+<td style="text-align: right;">Band 6</td>
+</tr>
+<tr class="odd">
+<td><code>B08</code> (NIR breit)</td>
+<td style="text-align: right;">Band 7</td>
+</tr>
+<tr class="even">
+<td><code>B8A</code> (NIR schmal)</td>
+<td style="text-align: right;">Band 8</td>
+</tr>
+<tr class="odd">
+<td><code>B11</code> (SWIR 1)</td>
+<td style="text-align: right;">Band 9</td>
+</tr>
+<tr class="even">
+<td><code>B12</code> (SWIR 2)</td>
+<td style="text-align: right;">Band 10</td>
+</tr>
+</tbody>
+</table>
+<p>Steht dagegen ausdrücklich <code>B02</code>, <code>B8A</code> oder <code>B12</code>, ist der ursprüngliche Sentinel-2-Bandname gemeint.</p>
+</div>
+</div>
+</section>
+<section id="farbdarstellungen-prüfen" class="level3" data-number="3.2.4">
+<h3 data-number="3.2.4" class="anchored" data-anchor-id="farbdarstellungen-prüfen"><span class="header-section-number">3.2.4</span> Farbdarstellungen prüfen</h3>
+<ol type="1">
+<li>Öffnen Sie mit Rechtsklick auf <code>S2_20250614_stack.tif</code> <span class="qgis-command">Properties &gt; Symbology</span>.</li>
+<li>Erzeugen Sie eine Echtfarbenansicht mit <strong>Red band = Band 3</strong>, <strong>Green band = Band 2</strong> und <strong>Blue band = Band 1</strong>.</li>
+<li>Erzeugen Sie eine Color-Infrared-Ansicht mit <strong>Red band = Band 7</strong>, <strong>Green band = Band 3</strong> und <strong>Blue band = Band 2</strong>.</li>
+<li>Erzeugen Sie eine SWIR-Ansicht mit <strong>Red band = Band 10</strong>, <strong>Green band = Band 7</strong> und <strong>Blue band = Band 3</strong>. Alternativ verwenden Sie Band 9 als roten Kanal.</li>
+<li>Zoomen Sie auf Gösselsdorf und vergleichen Sie Wald, Offenland, Wege, Schatten und Siedlungsflächen.</li>
+</ol>
+<div id="fig-swir-saalfeld" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Falschfarbendarstellung des Raums Saalfeld am 14. Juni 2025 mit grüner Vegetation, magentafarbenen Offen- und Siedlungsflächen sowie dunklen Wasserflächen.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-swir-saalfeld-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/screenshots/03-vorverarbeitung/03-swir-saalfeld.png" class="img-fluid figure-img" style="width:100.0%" alt="Falschfarbendarstellung des Raums Saalfeld am 14. Juni 2025 mit grüner Vegetation, magentafarbenen Offen- und Siedlungsflächen sowie dunklen Wasserflächen.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-swir-saalfeld-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;3.4: Beispiel einer Falschfarbendarstellung im Raum Saalfeld am 14. Juni 2025.
+</figcaption>
+</figure>
+</div>
+<div class="checkpoint-callout callout callout-style-default callout-note callout-titled" title="Checkpoint">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Checkpoint
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Welche Farbkombination sehen Sie hier? Können Sie Gösselsdorf auf dem Satellitenbild finden?</p>
+</div>
+</div>
+</section>
+<section id="auf-aoi-zuschneiden" class="level3" data-number="3.2.5">
+<h3 data-number="3.2.5" class="anchored" data-anchor-id="auf-aoi-zuschneiden"><span class="header-section-number">3.2.5</span> Auf AOI zuschneiden</h3>
+<p>Das Zuschneiden erfolgt für alle vorprozessierten Einzelbänder im SCP. Als Eingabe dient das Band Set mit den <code>RT_</code>-Bändern, als räumliche Begrenzung der Vektorlayer <code>AOI-buffer</code>.</p>
+<ol type="1">
+<li>Öffnen Sie <span class="qgis-command">SCP &gt; Preprocessing &gt; Clip raster bands</span>.</li>
+<li>Wählen Sie unter <strong>Select input band set</strong> das Band Set mit den zehn <code>RT_</code>-Bändern vom 14. Juni 2025.</li>
+<li>Aktivieren Sie <strong>Use vector for clipping</strong> und wählen Sie <code>AOI-buffer</code> als Vektorlayer.</li>
+<li>Tragen Sie unter <strong>Output name</strong> das Präfix <code>clip_</code> ein.</li>
+<li>Klicken Sie auf <strong>RUN</strong> und wählen Sie <code>02_vorverarbeitung/S2_20250614_prep/clip</code> als Ausgabeordner.</li>
+<li>Prüfen Sie, ob SCP zehn zugeschnittene Einzelbänder mit Namen wie <code>clip_RT_B02.tif</code> bis <code>clip_RT_B12.tif</code> erzeugt und in QGIS geladen hat.</li>
+<li>Öffnen Sie <span class="qgis-command">SCP &gt; Band set</span> und erstellen Sie ein neues Band Set.</li>
+<li>Aktualisieren Sie die Layerliste und fügen Sie alle <code>clip_</code>-Bänder in der ursprünglichen Sentinel-2-Reihenfolge hinzu.</li>
+<li>Wählen Sie unter <strong>Band quick settings &gt; Wavelength</strong> den Eintrag <strong>Sentinel-2</strong>, tragen Sie das Aufnahmedatum <code>2025-06-14</code> ein und aktivieren Sie das neue Band Set.</li>
+<li>Aktivieren Sie unter <strong>Band set tools</strong> die Option <strong>Create virtual raster of band set</strong>, klicken Sie auf <strong>RUN</strong> und speichern Sie die Ausgabe als <code>s2_20250614_aoi.vrt</code>.</li>
+<li>Visualisieren Sie das Virtual Raster mit einer der Farbkombinationen aus Abschnitt 3.2.4 und prüfen Sie, ob der Ausschnitt vollständig durch <code>AOI-buffer</code> begrenzt ist.</li>
+</ol>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopiert");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopiert");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../einheiten/02-recherche-download-satellitenbild.html" class="pagination-link" aria-label="Recherche und Download eines Satellitenbildes">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Recherche und Download eines Satellitenbildes</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

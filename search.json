@@ -1,0 +1,121 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Fernerkundung in der Forstwirtschaft",
+    "section": "",
+    "text": "Willkommen\nDieses Kursbuch ist Teil des freien Wahlmoduls Fernerkundung in der Forstwirtschaft im BSc Studiengang Forstwirtschaft an der Fachhochschule Erfurt.",
+    "crumbs": [
+      "Willkommen"
+    ]
+  },
+  {
+    "objectID": "index.html#aufbau",
+    "href": "index.html#aufbau",
+    "title": "Fernerkundung in der Forstwirtschaft",
+    "section": "Aufbau",
+    "text": "Aufbau\nDas Buch ist als begleitendes Medium zur Grundlagenvorlesung und der Nachbereitung der Übungen am PC gedacht. Der Aufbau orientiert sich am klassischen Ablauf eines Fernerkundungsverfahrens (s. Abbildung 1). Ein Großteil der Übungen widmet sich einer spezifischen Fragestellung aus dem Forstalltag. Dabei stehen sowohl Auswertungen von digitalen Luft- und Satellitenbildern als auch 3D-Daten im Mittelpunkt. Zum Ende der letzten Einheit sollten Sie die erlernten Inhalte auf eigene forstliche Fragestellungen übertragen können.\n\n\n\n\n\n\nAbbildung 1: Grundlegender Ablauf eines Fernerkundungsverfahrens",
+    "crumbs": [
+      "Willkommen"
+    ]
+  },
+  {
+    "objectID": "einheiten/01-qgis-plugin-installation.html",
+    "href": "einheiten/01-qgis-plugin-installation.html",
+    "title": "1  QGIS und Plugin-Installation",
+    "section": "",
+    "text": "1.1 QGIS und SCP installieren\nIm Modul arbeiten wir durchgehend mit der OpenSource Software QGIS und dem Semi-Automatic Classification Plugin (SCP).\nDas Plugin bündelt zentrale Arbeitsschritte der Fernerkundung in QGIS, darunter Vorverarbeitung, Bandverwaltung, Indexberechnungen und Klassifikationsalgorithmen. Wir nutzen es vornehmlich zur Vorverarbeitung und Auswertung von Satellitendaten.",
+    "crumbs": [
+      "Einstieg und Datenaufbereitung",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>QGIS und Plugin-Installation</span>"
+    ]
+  },
+  {
+    "objectID": "einheiten/01-qgis-plugin-installation.html#qgis-und-scp-installieren",
+    "href": "einheiten/01-qgis-plugin-installation.html#qgis-und-scp-installieren",
+    "title": "1  QGIS und Plugin-Installation",
+    "section": "",
+    "text": "1.1.1 QGIS installieren\n\nLaden Sie QGIS von qgis.org herunter.\nNutzen Sie für den Kurs die aktuelle Long Term Release (LTR) 3.44.11-Solothurn.\nInstallieren Sie QGIS mit den Standardeinstellungen.\n\n\n\n1.1.2 QGIS auf Englisch stellen\nEs wird empfohlen, QGIS auf englisch zu installieren, um bei Fehlermeldungen auf einen größeren Wissensschatz der QGIS-Community zurückzugreifen.\n\nÖffnen Sie Settings &gt; Options….\nWechseln Sie links zu General.\nAktivieren Sie Override system locale.\nWählen Sie als User interface translation English.\nBestätigen Sie mit OK und starten Sie QGIS neu.\n\n\n\n1.1.3 Plugin installieren\n\nÖffnen Sie in QGIS Plugins &gt; Manage and Install Plugins….\nWechseln Sie links auf All.\nGeben Sie in das Suchfeld Semi-Automatic Classification Plugin ein.\nKlicken Sie den Eintrag Semi-Automatic Classification Plugin an. \nKlicken Sie auf Install Plugin.\nWechseln Sie links auf Installed.\nPrüfen Sie, ob beim Semi-Automatic Classification Plugin die Checkbox aktiviert ist.\nSchließen Sie den Plugin Manager.",
+    "crumbs": [
+      "Einstieg und Datenaufbereitung",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>QGIS und Plugin-Installation</span>"
+    ]
+  },
+  {
+    "objectID": "einheiten/01-qgis-plugin-installation.html#projektstruktur",
+    "href": "einheiten/01-qgis-plugin-installation.html#projektstruktur",
+    "title": "1  QGIS und Plugin-Installation",
+    "section": "1.2 Projektstruktur",
+    "text": "1.2 Projektstruktur\nLegen Sie zu Beginn einen Projektordner in Ihrem Home-Directory an:\nFEFO2627/\n├── 00_projekte/\n├── 01_rohdaten/\n├── 02_vorverarbeitung/\n├── 03_vektordaten/\n├── 04_ergebnisse/\n├── 05_layouts/\n\n\n\n\n\n\nHinweisInfo\n\n\n\nArbeiten Sie stets mit kurzen, prägnanten Datei- und Ordnernamen ohne Leerzeichen und Umlaute (ä,ö,ü).",
+    "crumbs": [
+      "Einstieg und Datenaufbereitung",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>QGIS und Plugin-Installation</span>"
+    ]
+  },
+  {
+    "objectID": "einheiten/02-recherche-download-satellitenbild.html",
+    "href": "einheiten/02-recherche-download-satellitenbild.html",
+    "title": "2  Recherche und Download eines Satellitenbildes",
+    "section": "",
+    "text": "2.1 Copernicus-Konto erstellen\nSentinel-2 Satellitenbilder können im Copernicus Browser kostenfrei heruntergeladen werden. Hierfür wird ein kostenloses Konto benötigt.",
+    "crumbs": [
+      "Einstieg und Datenaufbereitung",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Recherche und Download eines Satellitenbildes</span>"
+    ]
+  },
+  {
+    "objectID": "einheiten/02-recherche-download-satellitenbild.html#copernicus-konto-erstellen",
+    "href": "einheiten/02-recherche-download-satellitenbild.html#copernicus-konto-erstellen",
+    "title": "2  Recherche und Download eines Satellitenbildes",
+    "section": "",
+    "text": "Öffnen Sie https://dataspace.copernicus.eu/.\nKlicken Sie oben rechts auf das Avatar- oder Login-Symbol.\nKlicken Sie auf REGISTER.\nFüllen Sie alle Pflichtfelder aus. Nutzen Sie möglichst Ihre Hochschul-E-Mail-Adresse.\nAkzeptieren Sie die Nutzungsbedingungen und die Datenschutzerklärung.\nSchließen Sie die Registrierung mit REGISTER ab.\nÖffnen Sie die Bestätigungs-E-Mail und klicken Sie auf den Verifizierungslink.\nMelden Sie sich danach im Copernicus Browser mit E-Mail-Adresse und Passwort an.",
+    "crumbs": [
+      "Einstieg und Datenaufbereitung",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Recherche und Download eines Satellitenbildes</span>"
+    ]
+  },
+  {
+    "objectID": "einheiten/02-recherche-download-satellitenbild.html#sentinel-2-daten-beschaffen",
+    "href": "einheiten/02-recherche-download-satellitenbild.html#sentinel-2-daten-beschaffen",
+    "title": "2  Recherche und Download eines Satellitenbildes",
+    "section": "2.2 Sentinel-2-Daten beschaffen",
+    "text": "2.2 Sentinel-2-Daten beschaffen\n\n\n\n\n\n\nHinweisInfo\n\n\n\nEs gibt mehrere Wege, Sentinel Daten herunterzuladen. Der Copernicus Browser eignet sich zum Erkunden der Szenen. SCP ist praktisch, wenn die Daten direkt in QGIS weiterverarbeitet werden sollen und Sie grob wissen, welche Szenen Sie benötigen. In dieser Übung verwenden wir den Weg über den Copernicus Browser.\n\n\n\nCopernicus BrowserSCP in QGIS\n\n\n\nÖffnen Sie den Copernicus Browser.\nMelden Sie sich mit Ihrem Copernicus-Konto an.\nSuchen Sie rechts oben nach Gösselsdorf oder zoomen Sie zur Saalfelder Höhe.\nWählen Sie links im Tab Search die Data collection Sentinel-2.\nWählen Sie als Processing level L2A, da diese Daten bereits atmosphärisch korrigiert sind.\nLassen Sie den Wolkenanteil bei 100 %.\n\n\n\n\n\n\n\nAbbildung 2.1: Auswahl des Datensatzes Sentinel-2 L2A im Copernicus Browser.\n\n\n\n\n\n\n\n\n\nHinweisCheckpoint\n\n\n\nIst ein hoher Wolkenanteil im gesamten Sentinel-2-Produkt automatisch ein Ausschlusskriterium?\n\n\n\nStellen Sie den Zeitraum 2025-06-01 bis 2025-06-30 ein.\nÖffnen Sie geeignete Treffer in der Vorschau und prüfen Sie, ob der Untersuchungsraum wolkenfrei sichtbar ist.\nKlicken Sie die Szene vom 14.06.2025 in der Ergebnisliste an. Die zugehörige Kachel wird als blaue Fläche auf der Karte hervorgehoben.\nKlicken Sie beim Treffer rechts unten auf das Download-Symbol mit dem nach unten gerichteten Pfeil.\n\n\n\n\n\n\n\nAbbildung 2.2: Auswahl der Sentinel-2-L2A-Szene vom 14.06.2025 und Download im Copernicus Browser.\n\n\n\n\nWarten Sie, bis der Fortschrittsbalken unter dem Produkt vollständig durchgelaufen ist. Lassen Sie den Browser währenddessen geöffnet.\nSpeichern Sie das heruntergeladene Produkt als .ZIP-Datei im Ordner 01_rohdaten/sentinel2/2025-06-14 ab.\nBehalten Sie den ursprünglichen (sehr langen) Produktnamen zunächst bei und entpacken Sie die ZIP-Datei im gleichen Ordner. Falls der Dateipfad beim Entpacken zu lang wird, können Sie den Namen des äußeren .ZIP-Ordners selbst kürzen, z.B. “S2C_MSIL2A_20250614T142405.SAFE”\n\n\n\nSentinel-2-Daten können auch direkt im Semi-Automatic Classification Plugin gesucht und heruntergeladen werden.\n\nZugangsdaten in SCP eintragen\n\nÖffnen Sie QGIS\nÖffnen Sie View &gt; Panels &gt; SCP Dock, falls das SCP-Dock nicht sichtbar ist.\nÖffnen Sie SCP &gt; Download products.\nWechseln Sie zum Tab Login data.\nTragen Sie unter Copernicus Data Space Ecosystem Ihre Zugangsdaten ein.\nLassen Sie remember deaktiviert, wenn Sie an einem Pool- oder Seminarraumrechner arbeiten.\n\n\n\n\n\n\n\nWarnungPasswort nicht unnötig speichern\n\n\n\nSCP weist darauf hin, dass gespeicherte Passwörter lokal in QGIS abgelegt werden können. Auf Hochschul- oder gemeinsam genutzten Rechnern sollten Zugangsdaten daher nicht dauerhaft gespeichert werden.\n\n\n\n\nSentinel-2 in SCP suchen\n\nÖffnen Sie SCP &gt; Download products.\nWechseln Sie zum Tab Search.\nWählen Sie als Product Sentinel-2.\nDefinieren Sie die search area über die Karte oder über die Koordinaten für UL und LR. Sie soll die AOI (Untersuchungsraum) Saalfelder Höhe abdecken.\nStellen Sie den Zeitraum 2025-06-01 bis 2025-06-30 ein.\nLassen Sie Max cloud cover (%) auf 100.\nStarten Sie die Suche mit Find.\nPrüfen Sie Datum, Wolkenanteil und Kachelvorschau.\n\n\n\nSentinel-2 in SCP herunterladen\n\nMarkieren Sie die geeignete Juni-Szene in der Produktliste.\nWählen Sie alle benötigten bands aus.\nAktivieren Sie Ancillary data, um Metadaten mitzuladen.\nAktivieren Sie Load bands in QGIS, wenn die bands nach dem Download direkt in QGIS erscheinen sollen.\nWählen Sie den Output directory 01_rohdaten/sentinel2/2025-06-14.\nStarten Sie den Download mit RUN.\n\n\n\n\n\n\n\n\n\n\n\nHinweisCheckpoint\n\n\n\nWelcher Sentinel-Satellit hat die von Ihnen heruntergeladene Szene aufgenommen?",
+    "crumbs": [
+      "Einstieg und Datenaufbereitung",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Recherche und Download eines Satellitenbildes</span>"
+    ]
+  },
+  {
+    "objectID": "einheiten/03-vorverarbeitung.html",
+    "href": "einheiten/03-vorverarbeitung.html",
+    "title": "3  Vorverarbeitung",
+    "section": "",
+    "text": "3.1 Bandspezifikationen\nSatellitendaten bestehen zunächst aus einzelnen Bändern mit digitalen Grauwerten (DN) und den zugehörigen Metadaten. Vor der Berechnung von Indizes -und insbesondere einer Zeitreihenanalyse- müssen diese digitalen Grauwerte der Bänder in ihre Reflektanzwerte überführt und als gemeinsamer Datensatz zusammengeführt werden. Die Vorprozessierung schafft daher eine vergleichbare Ausgangsbasis für jegliche fernerkundungsbasierte Analysen.\nIn den nächsten Einheiten wird mit folgenden Bändern gearbeitet:\nDie Bänder behalten bei der Vorprozessierung ihre räumliche Auflösung von 10 beziehungsweise 20 m. Das SCP-Plugin verwaltet die Bänder zunächst gemeinsam in einem so genannten Band Set und erzeugt daraus die Inputlayer für die Geoverarbeitung.",
+    "crumbs": [
+      "Einstieg und Datenaufbereitung",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Vorverarbeitung</span>"
+    ]
+  },
+  {
+    "objectID": "einheiten/03-vorverarbeitung.html#bandspezifikationen",
+    "href": "einheiten/03-vorverarbeitung.html#bandspezifikationen",
+    "title": "3  Vorverarbeitung",
+    "section": "",
+    "text": "Band\nSpektralbereich\nAuflösung\nVerwendung\n\n\n\n\nB02\nBlau\n10 m\nEchtfarben, Atmosphäre/Trübung\n\n\nB03\nGrün\n10 m\nEchtfarben, Wasser-/Vegetationskontraste\n\n\nB04\nRot\n10 m\nEchtfarben, NDVI\n\n\nB05\nRed Edge 1\n20 m\nVegetationszustand, Baumartenunterschiede\n\n\nB06\nRed Edge 2\n20 m\nVegetationsstruktur, Kronenunterschiede\n\n\nB07\nRed Edge 3\n20 m\nVegetationsvitalität, Klassifikation\n\n\nB08\nNahes Infrarot breit\n10 m\nVegetation, NDVI\n\n\nB8A\nNahes Infrarot schmal\n20 m\nVegetationszustand, Klassifikation\n\n\nB11\nSWIR 1\n20 m\nFeuchte, Trockenstress\n\n\nB12\nSWIR 2\n20 m\ntrockene Oberflächen, Vegetationsunterschiede",
+    "crumbs": [
+      "Einstieg und Datenaufbereitung",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Vorverarbeitung</span>"
+    ]
+  },
+  {
+    "objectID": "einheiten/03-vorverarbeitung.html#vorprozessierung-eines-satellitenbildes",
+    "href": "einheiten/03-vorverarbeitung.html#vorprozessierung-eines-satellitenbildes",
+    "title": "3  Vorverarbeitung",
+    "section": "3.2 Vorprozessierung eines Satellitenbildes",
+    "text": "3.2 Vorprozessierung eines Satellitenbildes\n\n3.2.1 Bänder für SCP vorbereiten\nSentinel-2-L2A-Daten werden als SAFE-Ordnerstruktur bereitgestellt. Bilddaten im Format .jp2 und Metadaten im Format .xml liegen darin in verschiedenen Unterordnern. Für die Vorprozessierung im SCP-Plugin werden die benötigten Bänder und die zugehörige Metadatendatei aus dieser Struktur in einen gemeinsamen Arbeitsordner kopiert.\n\n\n\n\n\n\nAbbildung 3.1: Vereinfachte Ordnerstruktur eines entpackten Sentinel-2-SAFE-Produkts.\n\n\n\nNach der SCP-FAQ muss die Bandnummer den alleinigen Dateinamen bilden, zum Beispiel B02.jp2.\n\n\n\nOriginaltyp\nZielname\n\n\n\n\n..._B02_10m.jp2\nB02.jp2\n\n\n..._B03_10m.jp2\nB03.jp2\n\n\n..._B04_10m.jp2\nB04.jp2\n\n\n...\nBXX.jp2\n\n\n\n\nLegen Sie den Ordner 01_rohdaten/S2_20250614 an.\nKopieren Sie die benötigten .jp2-Bänder und die zugehörige Metadatendatei MTD_MSIL2A in diesen Ordner. Alle Dateien müssen auf derselben Ordnerebene liegen.\nBenennen Sie die .jp2-Bänder nach dem Zielschema der obigen Tabelle um.\n\n\n\n3.2.2 Vorprozessierung in SCP\nÖffnen Sie QGIS und speichern Sie das Projekt als einheit_3.qgz.\nDie Vorprozessierung erfolgt in SCP anhand der Sentinel-2-Metadaten. Bei einem Level-2A-Produkt wendet der Befehl Image conversion die hinterlegten Skalierungsfaktoren an und überführt die digitalen Grauwerte (DN) in Reflektanzwerte.\n\nÖffnen Sie SCP &gt; Preprocessing &gt; Image conversion.\nWählen Sie unter Directory containing bands den vorbereiteten Ordner 01_rohdaten/S2_20250614.\nFalls die Metadaten nicht automatisch erkannt werden, wählen Sie unter Select metadata file (optional) MTD_MSIL2A aus demselben Ordner.\nPrüfen Sie in der Tabelle Metadata, ob Sentinel-2, Level-2A und die Bänder B02, B03, B04, B05, B06, B07, B08, B8A, B11 und B12 erkannt wurden.\nLassen Sie Use value as NoData mit dem Wert 0 aktiviert. Aktivieren Sie Apply DOS1 atmospheric correction nicht, da bereits ein Level-2A-Produkt verwendet wird.\nAktivieren Sie Create Band set and use Band set tools und wählen Sie Create a new Band set.\nKlicken Sie auf RUN und speichern Sie die Ausgaben im Ordner 02_vorverarbeitung/S2_20250614_prep.\nPrüfen Sie, ob die erzeugten Reflektanzbänder mit dem Präfix RT_ in QGIS geladen und einem neuen Band Set zugeordnet wurden.\n\n\n\n\n\n\n\nAbbildung 3.2: Vorprozessierung von Sentinel-2-L2A-Daten mit Image conversion in SCP.\n\n\n\n\n\n\n\n\n\nTippInfo\n\n\n\nDie erzeugten RT_-Bänder behalten ihre räumliche Auflösung. Bänder mit 10 und 20 m Pixelgröße dürfen deshalb im Band Set gemeinsam vorkommen.\n\n\n\n\n3.2.3 Band Set und Virtual Raster in SCP erstellen\nNach der Konvertierung enthält die Szene ein eigenes Band Set. Darin werden Reihenfolge, Wellenlängen und Aufnahmedatum geprüft.\n\nÖffnen Sie SCP &gt; Band set.\nWählen Sie in der Band set table das Band Set vom 14. Juni 2025 und setzen Sie es als Active band set.\nPrüfen Sie in der Band set definition die Reihenfolge: RT_B02, RT_B03, RT_B04, RT_B05, RT_B06, RT_B07, RT_B08, RT_B8A, RT_B11, RT_B12.\nPrüfen Sie die Center wavelength. Falls die Werte fehlen, wählen Sie unter Band quick settings &gt; Wavelength die Vorlage Sentinel-2.\nTragen Sie unter Date das Aufnahmedatum der Szene ein.\nAktivieren Sie unter Band set tools die Optionen Create virtual raster of band set und Create raster of band set (stack bands). Dadurch wird das Band Set lokal gespeichert. Aktivieren Sie zusätzlich Build band overviews.\nKlicken Sie auf RUN und speichern Sie die Ausgaben im Ordner 02_vorverarbeitung/S2_20250614_prep/, zum Beispiel als S2_20250614_bandset.vrt und S2_20250614_stack.tif.\n\n\n\n\n\n\n\nAbbildung 3.3: Band Set mit den vorprozessierten Sentinel-2-Bändern.\n\n\n\n\n\n\n\n\n\nTippInfo\n\n\n\nEin Virtual Raster (.vrt) ist zunächst nur eine Verknüpfung auf die einzelnen Rasterdateien. Das spart Speicherplatz und ist für die Arbeit im Kurs meist ausreichend. Der zusätzlich erzeugte Bandstack ist eine physische Rasterdatei und kann unabhängig von den einzelnen Quelldateien weitergegeben werden.\n\n\n\n\n\n\n\n\nTippInfo\n\n\n\nMit dem SCP-Bandstack entsteht in QGIS eine neue, fortlaufende Bandreihenfolge. Die ursprünglichen Sentinel-2-Nummern bleiben nicht erhalten, weil nicht benötigte Bänder wie Aerosol, Wasserdampf und Cirrus fehlen. Ab diesem Punkt beziehen sich Bandnummern in QGIS-Befehlen immer auf die Position im folgenden Stack:\n\n\n\nSentinel-2-Band\nQGIS-Stackband\n\n\n\n\nB02 (Blau)\nBand 1\n\n\nB03 (Grün)\nBand 2\n\n\nB04 (Rot)\nBand 3\n\n\nB05 (Red Edge 1)\nBand 4\n\n\nB06 (Red Edge 2)\nBand 5\n\n\nB07 (Red Edge 3)\nBand 6\n\n\nB08 (NIR breit)\nBand 7\n\n\nB8A (NIR schmal)\nBand 8\n\n\nB11 (SWIR 1)\nBand 9\n\n\nB12 (SWIR 2)\nBand 10\n\n\n\nSteht dagegen ausdrücklich B02, B8A oder B12, ist der ursprüngliche Sentinel-2-Bandname gemeint.\n\n\n\n\n3.2.4 Farbdarstellungen prüfen\n\nÖffnen Sie mit Rechtsklick auf S2_20250614_stack.tif Properties &gt; Symbology.\nErzeugen Sie eine Echtfarbenansicht mit Red band = Band 3, Green band = Band 2 und Blue band = Band 1.\nErzeugen Sie eine Color-Infrared-Ansicht mit Red band = Band 7, Green band = Band 3 und Blue band = Band 2.\nErzeugen Sie eine SWIR-Ansicht mit Red band = Band 10, Green band = Band 7 und Blue band = Band 3. Alternativ verwenden Sie Band 9 als roten Kanal.\nZoomen Sie auf Gösselsdorf und vergleichen Sie Wald, Offenland, Wege, Schatten und Siedlungsflächen.\n\n\n\n\n\n\n\nAbbildung 3.4: Beispiel einer Falschfarbendarstellung im Raum Saalfeld am 14. Juni 2025.\n\n\n\n\n\n\n\n\n\nHinweisCheckpoint\n\n\n\nWelche Farbkombination sehen Sie hier? Können Sie Gösselsdorf auf dem Satellitenbild finden?\n\n\n\n\n3.2.5 Auf AOI zuschneiden\nDas Zuschneiden erfolgt für alle vorprozessierten Einzelbänder im SCP. Als Eingabe dient das Band Set mit den RT_-Bändern, als räumliche Begrenzung der Vektorlayer AOI-buffer.\n\nÖffnen Sie SCP &gt; Preprocessing &gt; Clip raster bands.\nWählen Sie unter Select input band set das Band Set mit den zehn RT_-Bändern vom 14. Juni 2025.\nAktivieren Sie Use vector for clipping und wählen Sie AOI-buffer als Vektorlayer.\nTragen Sie unter Output name das Präfix clip_ ein.\nKlicken Sie auf RUN und wählen Sie 02_vorverarbeitung/S2_20250614_prep/clip als Ausgabeordner.\nPrüfen Sie, ob SCP zehn zugeschnittene Einzelbänder mit Namen wie clip_RT_B02.tif bis clip_RT_B12.tif erzeugt und in QGIS geladen hat.\nÖffnen Sie SCP &gt; Band set und erstellen Sie ein neues Band Set.\nAktualisieren Sie die Layerliste und fügen Sie alle clip_-Bänder in der ursprünglichen Sentinel-2-Reihenfolge hinzu.\nWählen Sie unter Band quick settings &gt; Wavelength den Eintrag Sentinel-2, tragen Sie das Aufnahmedatum 2025-06-14 ein und aktivieren Sie das neue Band Set.\nAktivieren Sie unter Band set tools die Option Create virtual raster of band set, klicken Sie auf RUN und speichern Sie die Ausgabe als s2_20250614_aoi.vrt.\nVisualisieren Sie das Virtual Raster mit einer der Farbkombinationen aus Abschnitt 3.2.4 und prüfen Sie, ob der Ausschnitt vollständig durch AOI-buffer begrenzt ist.",
+    "crumbs": [
+      "Einstieg und Datenaufbereitung",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Vorverarbeitung</span>"
+    ]
+  }
+]
