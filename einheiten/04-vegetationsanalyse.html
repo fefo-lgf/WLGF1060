@@ -569,32 +569,31 @@ Abbildung&nbsp;4.3: Gegenüberstellung des DOP20 und des daraus berechneten NDVI
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Der südliche Bereich zeigt niedrige NDVI-Werte, liegt aber am Waldrand. Würden Sie dort auf geringe Vitalität schließen?</p>
-<p>Prüfen Sie anschließend mit <strong>Identify Features</strong> mehrere eindeutig beschattete Bereiche: Welche NDVI-Werte treten dort auf? Welche Werte finden Sie dazu im roten und nahinfraroten Wellenlängenbereich?</p>
+<p>Prüfen Sie mit <strong>Identify Features</strong> mehrere eindeutig beschattete Bereiche: Welche NDVI-Werte treten dort auf? Welche Werte finden Sie dazu im roten und nahinfraroten Wellenlängenbereich?</p>
 </div>
 </div>
 </section>
 <section id="zusatz-moisture-index" class="level2" data-number="4.6">
 <h2 data-number="4.6" class="anchored" data-anchor-id="zusatz-moisture-index"><span class="header-section-number">4.6</span> Zusatz: Moisture Index</h2>
-<div class="practice-callout callout callout-style-default callout-tip callout-titled" title="Praxisauftrag">
+<p>Wiederholen Sie die Schritte für die NDVI-Erzeugung erneut für den Saalfelder Untersuchungsraum. Verwenden Sie die in Einheit 3 erzeugten, auf den Untersuchungsraum zugeschnittenen Sentinel-2-Bänder <code>clip_RT_B08.tif</code> und <code>clip_RT_B11.tif</code>.</p>
+<p>Wenden Sie anschließend den <strong>Normalized Difference Moisture Index (NDMI)</strong> auf den Saalfelder Untersuchungsraum an. Der Index stellt Unterschiede im Feuchtegehalt der Vegetation heraus und kombiniert dafür das nahe Infrarot (NIR) mit dem kurzwelligen Infrarot (SWIR). Er dient u.a. als Frühwarnindex für Trockenstress und Dürre.</p>
+<p>Die allgemeine Formel lautet:</p>
+<pre class="text"><code>NDMI = (NIR - SWIR) / (NIR + SWIR)</code></pre>
+<p>Für Sentinel-2 wird der Index mit Band 8 und Band 11 berechnet:</p>
+<pre class="text"><code>NDMI = (B08 - B11) / (B08 + B11)</code></pre>
+<div class="checkpoint-callout callout callout-style-default callout-note callout-titled" title="Checkpoint">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tipp</span>Praxisauftrag
+<span class="screen-reader-only">Hinweis</span>Checkpoint
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Wiederholen Sie die Schritte für die NDVI-Erzeugung erneut für den Saalfelder Untersuchungsraum. Verwenden Sie die in Einheit 3 erzeugten, auf den Untersuchungsraum zugeschnittenen Sentinel-2-Bänder <code>clip_RT_B08.tif</code> und <code>clip_RT_B11.tif</code>.</p>
-<p>Wenden Sie anschließend den <strong>Normalized Difference Moisture Index (NDMI)</strong> auf den Saalfelder Untersuchungsraum an. Der Index stellt Unterschiede im Feuchtegehalt der Vegetation heraus und kombiniert dafür das nahe Infrarot (NIR) mit dem kurzwelligen Infrarot (SWIR). Er dient u.a. als Frühwarnindex für Trockenstress und Dürre.</p>
-</div>
-</div>
-<p>Die allgemeine Formel lautet:</p>
-<pre class="text"><code>NDMI = (NIR - SWIR) / (NIR + SWIR)</code></pre>
-<p>Für Sentinel-2 wird der Index mit Band 8 und Band 11 berechnet:</p>
-<pre class="text"><code>NDMI = (B08 - B11) / (B08 + B11)</code></pre>
 <p>Stellen Sie den NDMI als <strong>Singleband pseudocolor</strong> dar. Vergleichen Sie Waldflächen, Offenland, Siedlungen und Wasser. Welche räumlichen Unterschiede im Feuchtegehalt werden sichtbar, insbesondere in nahe Gössselsdorf?</p>
+</div>
+</div>
 
 
 </section>
