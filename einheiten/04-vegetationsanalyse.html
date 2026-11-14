@@ -357,6 +357,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#thüringer-dop20-nutzen" id="toc-thüringer-dop20-nutzen" class="nav-link" data-scroll-target="#thüringer-dop20-nutzen"><span class="header-section-number">4.3</span> Thüringer DOP20 nutzen</a></li>
   <li><a href="#ndvi-berechnen" id="toc-ndvi-berechnen" class="nav-link" data-scroll-target="#ndvi-berechnen"><span class="header-section-number">4.4</span> NDVI berechnen</a></li>
   <li><a href="#ergebnis-darstellen" id="toc-ergebnis-darstellen" class="nav-link" data-scroll-target="#ergebnis-darstellen"><span class="header-section-number">4.5</span> Ergebnis darstellen</a></li>
+  <li><a href="#zusatz-moisture-index" id="toc-zusatz-moisture-index" class="nav-link" data-scroll-target="#zusatz-moisture-index"><span class="header-section-number">4.6</span> Zusatz: Moisture Index</a></li>
   </ul>
 </nav>
     </div>
@@ -393,7 +394,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Im Meininger Stadtwald gibt es vermehrt Hinweise auf abgestorbene Einzelbäume und Kalamitätsflächen. Für eine flächige Suche im Wald fehlt jedoch die Zeit. Filtern Sie bereits im Vorfeld die Verdachtsflächen heraus, in denen geschädigte oder abgestorbene Baumkronen zu erwarten sind. Das Revierteam soll anschließend gezielt diese Stellen anlaufen.</p>
+<p>Im Meininger Stadtwald gibt es vermehrt Hinweise auf abgestorbene Einzelbäume und Kalamitätsflächen. Für eine flächige Suche im Wald fehlt jedoch die Zeit. Suchen Sie bereits im Vorfeld jene Verdachtsflächen heraus, in denen geschädigte oder abgestorbene Baumkronen zu erwarten sind. Aufgrund der Größe des Untersuchungsraums entscheiden Sie sich zunächst für ein Digitales Orthophoto als Datengrundlage.</p>
 </div>
 </div>
 <section id="untersuchungsraum" class="level2" data-number="4.1">
@@ -572,6 +573,28 @@ Abbildung&nbsp;4.3: Gegenüberstellung des DOP20 und des daraus berechneten NDVI
 <p>Prüfen Sie anschließend mit <strong>Identify Features</strong> mehrere eindeutig beschattete Bereiche: Welche NDVI-Werte treten dort auf? Welche Werte finden Sie dazu im roten und nahinfraroten Wellenlängenbereich?</p>
 </div>
 </div>
+</section>
+<section id="zusatz-moisture-index" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="zusatz-moisture-index"><span class="header-section-number">4.6</span> Zusatz: Moisture Index</h2>
+<div class="practice-callout callout callout-style-default callout-tip callout-titled" title="Praxisauftrag">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Praxisauftrag
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Wiederholen Sie die Schritte für die NDVI-Erzeugung erneut für den Saalfelder Untersuchungsraum. Verwenden Sie die in Einheit 3 erzeugten, auf den Untersuchungsraum zugeschnittenen Sentinel-2-Bänder <code>clip_RT_B08.tif</code> und <code>clip_RT_B11.tif</code>.</p>
+<p>Wenden Sie anschließend den <strong>Normalized Difference Moisture Index (NDMI)</strong> auf den Saalfelder Untersuchungsraum an. Der Index stellt Unterschiede im Feuchtegehalt der Vegetation heraus und kombiniert dafür das nahe Infrarot (NIR) mit dem kurzwelligen Infrarot (SWIR). Er dient u.a. als Frühwarnindex für Trockenstress und Dürre.</p>
+</div>
+</div>
+<p>Die allgemeine Formel lautet:</p>
+<pre class="text"><code>NDMI = (NIR - SWIR) / (NIR + SWIR)</code></pre>
+<p>Für Sentinel-2 wird der Index mit Band 8 und Band 11 berechnet:</p>
+<pre class="text"><code>NDMI = (B08 - B11) / (B08 + B11)</code></pre>
+<p>Stellen Sie den NDMI als <strong>Singleband pseudocolor</strong> dar. Vergleichen Sie Waldflächen, Offenland, Siedlungen und Wasser. Welche räumlichen Unterschiede im Feuchtegehalt werden sichtbar, insbesondere in nahe Gössselsdorf?</p>
 
 
 </section>

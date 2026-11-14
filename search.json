@@ -174,6 +174,17 @@
     ]
   },
   {
+    "objectID": "einheiten/04-vegetationsanalyse.html#zusatz-moisture-index",
+    "href": "einheiten/04-vegetationsanalyse.html#zusatz-moisture-index",
+    "title": "4  Vegetationsanalyse",
+    "section": "4.6 Zusatz: Moisture Index",
+    "text": "4.6 Zusatz: Moisture Index\n\n\n\n\n\n\nTippPraxisauftrag\n\n\n\nWiederholen Sie die Schritte für die NDVI-Erzeugung erneut für den Saalfelder Untersuchungsraum. Verwenden Sie die in Einheit 3 erzeugten, auf den Untersuchungsraum zugeschnittenen Sentinel-2-Bänder clip_RT_B08.tif und clip_RT_B11.tif.\nWenden Sie anschließend den Normalized Difference Moisture Index (NDMI) auf den Saalfelder Untersuchungsraum an. Der Index stellt Unterschiede im Feuchtegehalt der Vegetation heraus und kombiniert dafür das nahe Infrarot (NIR) mit dem kurzwelligen Infrarot (SWIR). Er dient u.a. als Frühwarnindex für Trockenstress und Dürre.\n\n\nDie allgemeine Formel lautet:\nNDMI = (NIR - SWIR) / (NIR + SWIR)\nFür Sentinel-2 wird der Index mit Band 8 und Band 11 berechnet:\nNDMI = (B08 - B11) / (B08 + B11)\nStellen Sie den NDMI als Singleband pseudocolor dar. Vergleichen Sie Waldflächen, Offenland, Siedlungen und Wasser. Welche räumlichen Unterschiede im Feuchtegehalt werden sichtbar, insbesondere in nahe Gössselsdorf?",
+    "crumbs": [
+      "Spektralindizes",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Vegetationsanalyse</span>"
+    ]
+  },
+  {
     "objectID": "einheiten/glossar.html",
     "href": "einheiten/glossar.html",
     "title": "Glossar",
