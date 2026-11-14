@@ -279,7 +279,7 @@
     "href": "einheiten/glossar.html#n",
     "title": "Glossar",
     "section": "N",
-    "text": "N\n\nNBR\nNormalized Burn Ratio. Index aus nahem Infrarot und kurzwelligem Infrarot, der häufig für Brand- und Störungsanalysen verwendet wird.\n\nNDMI\nNormalized Difference Moisture Index. Index zur Abschätzung von Vegetations- oder Kronenfeuchte.\n\nNDVI\nNormalized Difference Vegetation Index. Index für Vegetationsaktivität auf Basis von Rot und nahem Infrarot.\nNoData\nWert oder Bereich ohne gültige Rasterinformation. NoData-Flächen dürfen nicht als echte Messwerte interpretiert werden.",
+    "text": "N\n\nNBR\nNormalized Burn Ratio. Index aus nahem Infrarot und kurzwelligem Infrarot, der häufig für Brand- und Störungsanalysen verwendet wird.\n\nNDMI\nNormalized Difference Moisture Index. Der Index beschreibt Unterschiede im Wassergehalt der Vegetation und kann Hinweise auf Trockenstress geben. Er wird aus dem nahen Infrarot (NIR) und dem kurzwelligen Infrarot (SWIR) berechnet: NDMI = (NIR - SWIR) / (NIR + SWIR). Für Sentinel-2 werden dafür Band 8 und Band 11 verwendet. Höhere Werte weisen in der Regel auf feuchtere Vegetation, niedrigere Werte auf trockenere Vegetation oder unbewachsene Flächen hin.\n\nNDVI\nNormalized Difference Vegetation Index. Index für Vegetationsaktivität auf Basis von Rot und nahem Infrarot.\nNoData\nWert oder Bereich ohne gültige Rasterinformation. NoData-Flächen dürfen nicht als echte Messwerte interpretiert werden.",
     "crumbs": [
       "Glossar"
     ]
