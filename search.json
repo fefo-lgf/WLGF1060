@@ -185,6 +185,72 @@
     ]
   },
   {
+    "objectID": "einheiten/05-waldbrandanalyse.html",
+    "href": "einheiten/05-waldbrandanalyse.html",
+    "title": "5  Waldbrandanalyse",
+    "section": "",
+    "text": "5.1 Untersuchungsraum\nDie Fallstudie bezieht sich auf den Waldbrand bei Gösselsdorf auf der Saalfelder Höhe. Laut amtlichen Informationen wurde der Alarm am 2. Juli 2025 um 14:24 Uhr ausgelöst. Wegen trockener Vegetation und starken Windes breitete sich das Feuer schnell auf etwa 250 ha aus. Der Landkreis stellte am selben Tag um 17:30 Uhr den Katastrophenfall fest. Am 7. Juli 2025 war das Feuer unter Kontrolle, am 14. Juli 2025 wurde “Feuer aus” gemeldet.",
+    "crumbs": [
+      "Spektralindizes",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Waldbrandanalyse</span>"
+    ]
+  },
+  {
+    "objectID": "einheiten/05-waldbrandanalyse.html#sentinel-2-szene-nach-dem-brand-herunterladen",
+    "href": "einheiten/05-waldbrandanalyse.html#sentinel-2-szene-nach-dem-brand-herunterladen",
+    "title": "5  Waldbrandanalyse",
+    "section": "5.2 Sentinel-2-Szene nach dem Brand herunterladen",
+    "text": "5.2 Sentinel-2-Szene nach dem Brand herunterladen\n\n\n\n\n\n\n\n\n14. Juni 2025\n\n\n\n\n\n\n\n25. August 2025\n\n\n\n\n\n\nAbbildung 5.1: Sentinel-2-Aufnahmen des Untersuchungsraums vor und nach dem Waldbrand.\n\n\n\nUm das Ausmaß des Brandes kartieren zu können, benötigen Sie eine möglichst wolkenarme Satellitenbildaufnahme nach dem Ereignis. Wiederholen Sie die Recherche und den Download aus Einheit 2. Wählen Sie diesmal den Zeitraum 2025-08-15 bis 2025-08-31 und laden Sie die Szene vom 25. August 2025 herunter. Wiederholen Sie entsprechend auch den Ablauf aus Vorprozessierung eines Satellitenbildes für die neue Szene.\n\n\n\n\n\n\nHinweisInfo\n\n\n\nBeide Raster müssen denselben räumlichen Ausschnitt und dasselbe Koordinatenbezugssystem besitzen. Verwenden Sie deshalb für beide Zeitpunkte dieselbe aoi_saalfelder_hoehe und dieselben Einstellungen beim Zuschneiden.",
+    "crumbs": [
+      "Spektralindizes",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Waldbrandanalyse</span>"
+    ]
+  },
+  {
+    "objectID": "einheiten/05-waldbrandanalyse.html#datenbasis",
+    "href": "einheiten/05-waldbrandanalyse.html#datenbasis",
+    "title": "5  Waldbrandanalyse",
+    "section": "5.3 Datenbasis",
+    "text": "5.3 Datenbasis\nFür den Normalized Burn Ratio (NBR) und dNBR sind folgende Bänder relevant:\n\n\n\n\n\n\n\n\nBand\nBereich\nFunktion\n\n\n\n\nB08 oder B8A\nNahes Infrarot\nvitale Vegetation, Kronenstruktur\n\n\nB12\nSWIR 2\nTrockenheit, Brandspuren, gestörte Vegetation\n\n\n\nDie Bezeichnungen in dieser Tabelle sind die ursprünglichen Sentinel-2-Bandnamen. In QGIS werden für Befehle die Positionen im vorbereiteten SCP-Bandstack verwendet; die vollständige Zuordnung steht im Abschnitt Band Set und Virtual Raster in SCP erstellen.\n\n\n\n\n\n\nTippInfo\n\n\n\nFür Sentinel-2 wird der NBR oft mit B8A und B12 berechnet, weil B8A als schmaleres NIR-Band gut zu klassischen NBR-Anwendungen passt. B8A und B12 liegen beide mit 20 m Auflösung vor.",
+    "crumbs": [
+      "Spektralindizes",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Waldbrandanalyse</span>"
+    ]
+  },
+  {
+    "objectID": "einheiten/05-waldbrandanalyse.html#nbr-berechnen",
+    "href": "einheiten/05-waldbrandanalyse.html#nbr-berechnen",
+    "title": "5  Waldbrandanalyse",
+    "section": "5.4 NBR berechnen",
+    "text": "5.4 NBR berechnen\nDie Formel lautet:\nNBR = (NIR - SWIR2) / (NIR + SWIR2)\n\nÖffnen Sie Raster &gt; Raster Calculator….\nBerechnen Sie zuerst den NBR für die Szene vom 14. Juni 2025.\nWenn Ihr SCP-Bandstack in der Reihenfolge aus der Vorverarbeitung aufgebaut ist, entspricht B8A dem Band 8 und B12 dem Band 10. Der Ausdruck lautet dann:\n(\"s2_20250614_aoi@8\" - \"s2_20250614_aoi@10\") /\n(\"s2_20250614_aoi@8\" + \"s2_20250614_aoi@10\")\nSpeichern Sie die Ausgabe als nbr_20250614.tif im Ordner 03_ergebnisse/indizes/NBR.\nWiederholen Sie die Berechnung für die Szene vom 25. August 2025:\n(\"s2_20250825_aoi@8\" - \"s2_20250825_aoi@10\") /\n(\"s2_20250825_aoi@8\" + \"s2_20250825_aoi@10\")\nSpeichern Sie die Ausgabe als nbr_20250825.tif.\n\nWenn Sie für den NBR B08 statt B8A verwenden, nutzen Sie in der vorbereiteten SCP-Stackreihenfolge Band 7 statt Band 8:\n(\"s2_20250614_aoi@7\" - \"s2_20250614_aoi@10\") /\n(\"s2_20250614_aoi@7\" + \"s2_20250614_aoi@10\")",
+    "crumbs": [
+      "Spektralindizes",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Waldbrandanalyse</span>"
+    ]
+  },
+  {
+    "objectID": "einheiten/05-waldbrandanalyse.html#dnbr-berechnen",
+    "href": "einheiten/05-waldbrandanalyse.html#dnbr-berechnen",
+    "title": "5  Waldbrandanalyse",
+    "section": "5.5 dNBR berechnen",
+    "text": "5.5 dNBR berechnen\nDie Formel lautet:\ndNBR = NBR_vorher - NBR_nachher\n\nLaden Sie nbr_20250614.tif und nbr_20250825.tif in QGIS.\nÖffnen Sie Raster &gt; Raster Calculator….\nBerechnen Sie: \"nbr_20250614@1\" - \"nbr_20250825@1\".\nSpeichern Sie das Ergebnis als dnbr_2025.tif.\nSymbolisieren Sie dnbr_2025.tif mit einem Farbverlauf von geringer zu starker Veränderung.",
+    "crumbs": [
+      "Spektralindizes",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Waldbrandanalyse</span>"
+    ]
+  },
+  {
+    "objectID": "einheiten/05-waldbrandanalyse.html#dnbr-schädigungskarte-als-orientierung",
+    "href": "einheiten/05-waldbrandanalyse.html#dnbr-schädigungskarte-als-orientierung",
+    "title": "5  Waldbrandanalyse",
+    "section": "5.6 dNBR-Schädigungskarte als Orientierung",
+    "text": "5.6 dNBR-Schädigungskarte als Orientierung\nFür eine erste Einordnung kann dnbr_2025.tif nach den häufig verwendeten dNBR-Klassen von USGS und US Forest Service dargestellt werden:\n\n\n\ndNBR\nOrientierungsklasse\n\n\n\n\n-0.50 bis &lt; -0.25\nstarke Zunahme der Vegetationsantwort\n\n\n-0.25 bis &lt; -0.10\ngeringe Zunahme der Vegetationsantwort\n\n\n-0.10 bis &lt; 0.10\nunverändert bis sehr geringe Schädigung\n\n\n0.10 bis &lt; 0.27\ngeringe Schädigung\n\n\n0.27 bis &lt; 0.44\ngeringe bis moderate Schädigung\n\n\n0.44 bis &lt; 0.66\nmoderate bis hohe Schädigung\n\n\n≥ 0.66\nhohe Schädigung\n\n\n\n\n\n\n\n\n\nWarnungLokale Validierung erforderlich\n\n\n\nDer dNBR misst lediglich spektrale Veränderungen. Er belegt weder Baumsterblichkeit noch unmittelbare Bodenschädigung. Prüfen Sie die Klassen deshalb stets mit Orthophotos und falls möglich mit Geländebeobachtungen. Passen Sie Grenzwerte gegebenenfalls unter Zuhilfenahme der Werteverteilung im Histogram an.\n\n\n\nÖffnen Sie mit Rechtsklick auf dnbr_2025.tif Properties &gt; Symbology.\nWählen Sie Render type = Singleband pseudocolor und Interpolation = Discrete.\nLegen Sie die Klassengrenzen aus der Tabelle manuell an.\nWählen Sie den Farbverlauf Inferno und ordnen Sie ihn den Klassen in aufsteigender Reihenfolge der dNBR-Werte zu. Behalten Sie die diskrete Darstellung bei, sodass jede Schädigungsklasse eine feste Farbe erhält.\n\n\n\n\n\n\n\nHinweisCheckpoint\n\n\n\nFinden Sie im dNBR-Ergebnis Hinweise auf den Brandursprung?\n\n\n\n\n\n\n\n\nAbbildung 5.2: dNBR-Raster für den Untersuchungsraum bei Gösselsdorf.",
+    "crumbs": [
+      "Spektralindizes",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Waldbrandanalyse</span>"
+    ]
+  },
+  {
     "objectID": "einheiten/glossar.html",
     "href": "einheiten/glossar.html",
     "title": "Glossar",
