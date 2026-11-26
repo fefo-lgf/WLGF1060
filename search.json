@@ -255,7 +255,7 @@
     "href": "einheiten/06-ueberwachte-klassifikation.html",
     "title": "6  Überwachte Klassifikation",
     "section": "",
-    "text": "6.1 Random Forest\nDie überwachte Klassifikation ist das Herzstück der Fernerkundung. Hierzu gibt es verschiedene Algorithmen, die aus den Pixeln von Referenzflächen lernen und eine kategorische karte erzeugen. Der Random Forest Algorithmus kombiniert im Gegensatz zum einfach Decision-Tree-Verfahren viele Entscheidungsbäume. Jeder Baum stimmt anhand unterschiedlicher Informationen über die Klasse eines Pixels ab. Am Ende entscheidet die Mehrheit über das Ergebnis.",
+    "text": "6.1 Random Forest\nDie überwachte Klassifikation ist das Herzstück der Fernerkundung. Hierzu gibt es verschiedene Algorithmen, die aus den Pixeln von Referenzflächen lernen und eine kategorische Karte erzeugen. Der Random-Forest-Algorithmus kombiniert im Gegensatz zum einfachen Decision-Tree-Verfahren viele Entscheidungsbäume. Jeder Baum stimmt anhand unterschiedlicher Informationen über die Klasse eines Pixels ab. Am Ende entscheidet die Mehrheit über das Ergebnis.",
     "crumbs": [
       "Waldflächen kartieren und Veränderungen erfassen",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Überwachte Klassifikation</span>"
