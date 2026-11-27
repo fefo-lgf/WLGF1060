@@ -483,14 +483,14 @@ Abbildung&nbsp;6.1: Auszug einer Random-Forest-Bodenbedeckungsklassifikation fü
 </section>
 <section id="datenbasis-und-band-set" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="datenbasis-und-band-set"><span class="header-section-number">6.2</span> Datenbasis und Band Set</h2>
-<p>Nutzen Sie das Band Set der Sentinel-2-Szene vom 14. Juni 2025 aus der Vorverarbeitung (Band Set 1 mit Prefix RT_clip):</p>
+<p>Nutzen Sie die zehn zugeschnittenen Sentinel-2-Bänder vom 14. Juni 2025 aus Einheit 3 (Dateien mit dem Präfix <code>clip_RT_</code>).</p>
 <ol type="1">
 <li>Öffnen Sie QGIS und speichern Sie das Projekt als <code>einheit_6.qgz</code>.</li>
 <li>Öffnen Sie <span class="qgis-command">SCP &gt; Band set</span>.</li>
-<li>Aktivieren Sie das Band Set vom 14. Juni 2025.</li>
-<li>Prüfen Sie Reihenfolge und Vollständigkeit der zehn vorprozessierten Bänder.</li>
+<li>Aktivieren Sie das Band Set vom 14. Juni 2025 (in dieser Anleitung Band Set 1). Falls es noch nicht vorhanden ist, erstellen Sie es aus den zugeschnittenen Bändern.</li>
+<li>Prüfen Sie die Reihenfolge: B02, B03, B04, B05, B06, B07, B08, B8A, B11, B12.</li>
 <li>Wählen Sie unter <strong>Band quick settings &gt; Wavelength</strong> den Eintrag <strong>Sentinel-2</strong>. Kontrollieren Sie anschließend die Wellenlängen.</li>
-<li>Stellen Sie in der <strong>Working toolbar</strong> unter <strong>RGB=</strong> zunächst <code>3-2-1</code> ein. Diese Kombination zeigt mit der Bandreihenfolge des Kurses ein Echtfarbenbild.</li>
+<li>Stellen Sie in der <strong>Working toolbar</strong> unter <strong>RGB=</strong> zunächst <code>3-2-1</code> ein. Die Zahlen bezeichnen Positionen im Band Set, nicht die Sentinel-Bandnummern. Hier ergibt B04–B03–B02 ein Echtfarbenbild.</li>
 <li>Legen Sie zusätzlich den DOP-WMS als Interpretationshilfe unter die Sentinel-2-Daten.</li>
 </ol>
 </section>
@@ -564,7 +564,7 @@ Abbildung&nbsp;6.1: Auszug einer Random-Forest-Bodenbedeckungsklassifikation fü
 </tr>
 <tr class="even">
 <td style="text-align: right;">4</td>
-<td>Offene Böden</td>
+<td>offene Böden</td>
 <td style="text-align: center;"><img src="../assets/screenshots/06-klassifikation/offene-boeden.png" class="img-fluid" width="64" alt="Beispiel einer ROI für offene Böden"></td>
 <td>unbewachsene oder frisch bearbeitete Flächen, saisonal stark unterschiedlich</td>
 </tr>
@@ -588,8 +588,8 @@ Abbildung&nbsp;6.1: Auszug einer Random-Forest-Bodenbedeckungsklassifikation fü
 <section id="training-input-anlegen" class="level3" data-number="6.4.1">
 <h3 data-number="6.4.1" class="anchored" data-anchor-id="training-input-anlegen"><span class="header-section-number">6.4.1</span> Training input anlegen</h3>
 <ol type="1">
-<li>Öffnen Sie den Tab <strong>Training input</strong> im <strong>SCP Dock</strong>.</li>
-<li>Klicken Sie oben auf auf <strong>Create new training input</strong>.</li>
+<li>Öffnen Sie den Tab <strong>Training input</strong> im <strong>SCP Dock</strong>. Falls das Dock fehlt, blenden Sie es über <strong>SCP &gt; Show plugin</strong> wieder ein.</li>
+<li>Klicken Sie oben auf <strong>Create new training input</strong>.</li>
 <li>Speichern Sie die Datei als <code>04_ergebnisse/S2_20250614/ROI-06142025.scpx</code>. Es entsteht ein neuer Training layer im Layerpanel. Jeder Training Input bezieht sich auf ein bestimmtes Band Set. In unserem Fall Band Set 1.</li>
 <li>Aktivieren Sie <strong>Autosave</strong>, falls die Option angezeigt wird, und speichern Sie zusätzlich regelmäßig das QGIS-Projekt.</li>
 <li>Bearbeiten Sie den Training input ausschließlich mit den SCP-Werkzeugen.</li>
@@ -612,11 +612,11 @@ Abbildung&nbsp;6.2: Training input im SCP Dock mit den Eingabefeldern für MC ID
 <li>Legen Sie im <strong>SCP Dock</strong> <strong>MC ID</strong> und <strong>MC Name</strong> entsprechend dem Klassenschema fest.</li>
 <li>Vergeben Sie für jede neue Trainingsfläche eine eigene <strong>C ID</strong> und einen kurzen <strong>C Name</strong>.</li>
 <li>Aktivieren Sie in der <strong>Working toolbar</strong> das Werkzeug zum manuellen Zeichnen einer ROI.</li>
-<li>Zeichnen Sie ein Polygon innerhalb einer möglichst homogenen Fläche. Schließen Sie das Polygon mit einem Rechtsklick.</li>
-<li>Speichern Sie die ROI im Training input.</li>
+<li>Setzen Sie die Eckpunkte mit Linksklicks innerhalb einer möglichst homogenen Fläche. Schließen Sie das Polygon mit einem Rechtsklick.</li>
+<li>Klicken Sie im SCP Dock auf die Diskette (<strong>Save temporary ROI</strong>). Prüfen Sie, ob die Fläche mit der richtigen <strong>MC ID</strong> in der <strong>ROI &amp; Signature list</strong> erscheint.</li>
 <li>Erfassen Sie je Klasse mindestens fünf räumlich getrennte ROIs.</li>
 <li>Verteilen Sie die ROIs über unterschiedliche Bestände und Bildbereiche.</li>
-<li>Meiden Sie Waldränder, Wege, Schatten, Einzelbäume und deutlich gemischte Pixel.</li>
+<li>Wählen Sie Flächen, die auch im gröberen Sentinel-2-Bild mehrere eindeutige Pixel enthalten. Meiden Sie Waldränder, schmale Wege, Schatten und Mischpixel.</li>
 </ol>
 <div id="fig-scp-classification-trainingsamples" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -624,7 +624,7 @@ Abbildung&nbsp;6.2: Training input im SCP Dock mit den Eingabefeldern für MC ID
 <img src="../assets/screenshots/06-klassifikation/classification-trainingsamples.png" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scp-classification-trainingsamples-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;6.3: Erfasste Trainingsflächen in der Karte und ihre Zuordnung in der ROI &amp; Signature list.
+Abbildung&nbsp;6.3: Erfasste Trainingsflächen und ihre Zuordnung in der ROI &amp; Signature list. Der Screenshot zeigt ein Falschfarbenbild (7-3-2). Klasse 3 heißt in dieser Übung «sonstige Vegetation».
 </figcaption>
 </figure>
 </div>
@@ -699,7 +699,7 @@ Abbildung&nbsp;6.4: Spectral Signature Plot für Nadelwald, Laubwald und sonstig
 <ol type="1">
 <li>Öffnen Sie <span class="qgis-command">SCP &gt; Band processing &gt; Classification</span>.</li>
 <li>Wählen Sie unter <strong>Select input band set</strong> das Band Set vom 14. Juni 2025.</li>
-<li>Aktivieren Sie <strong>Use training Macroclass ID</strong>. Dadurch entsprechen die Ausgabewerte den MC IDs des Klassenschemas.</li>
+<li>Wählen Sie unter <strong>Use training</strong> die Option <strong>Macroclass ID</strong>, nicht <strong>Class ID</strong>. Dadurch entsprechen die Ausgabewerte den MC IDs des Klassenschemas.</li>
 <li>Wählen Sie unter <strong>Algorithm</strong> den Eintrag <strong>Random Forest</strong>.</li>
 <li>Tragen Sie zunächst <code>100</code> bei <strong>Number of trees</strong> ein.</li>
 <li>Belassen Sie <strong>Minimum number to split</strong> auf <code>2</code>.</li>
@@ -711,7 +711,7 @@ Abbildung&nbsp;6.4: Spectral Signature Plot für Nadelwald, Laubwald und sonstig
 <ol type="1">
 <li>Stellen Sie in der <strong>Working toolbar</strong> unter <strong>Classification preview</strong> die <strong>Size</strong> auf <code>200</code>.</li>
 <li>Aktivieren Sie <strong>Classification preview</strong> und klicken Sie in einen typischen Ausschnitt des Untersuchungsraums.</li>
-<li>Prüfen Sie die Vorschau anhand von Sentinel- und dem DOP20.</li>
+<li>Vergleichen Sie die Vorschau mit dem Sentinel-2-Bild und dem DOP20.</li>
 <li>Erstellen Sie weitere Vorschauen in Wald, Offenland und Siedlungsflächen.</li>
 <li>Ergänzen oder korrigieren Sie ROIs, wenn eine Klasse wiederholt unplausibel erscheint.</li>
 </ol>
@@ -725,7 +725,7 @@ Abbildung&nbsp;6.4: Spectral Signature Plot für Nadelwald, Laubwald und sonstig
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Die Vorschau mit 100 Bäumen sieht fast genauso aus wie die mit 10 Bäumen. Spricht das bereits für ein gutes Modell?</p>
+<p>Woran erkennen Sie, ob die Vorschau plausibel ist? Warum reicht der Sichtvergleich nicht aus, um die Genauigkeit der Karte zu beurteilen?</p>
 </div>
 </div>
 </section>
@@ -734,8 +734,8 @@ Abbildung&nbsp;6.4: Spectral Signature Plot für Nadelwald, Laubwald und sonstig
 <h2 data-number="6.6" class="anchored" data-anchor-id="klassifikation-berechnen"><span class="header-section-number">6.6</span> Klassifikation berechnen</h2>
 <ol type="1">
 <li>Öffnen Sie erneut <span class="qgis-command">SCP &gt; Band processing &gt; Classification</span>.</li>
-<li>Prüfen Sie Band Set, Training input und <strong>Use training Macroclass ID</strong>.</li>
-<li>Wählen Sie <strong>Random Forest</strong> und übernehmen Sie die in <a href="#fig-rf-classification-start" class="quarto-xref">Abbildung&nbsp;<span>6.5</span></a> gezeigten Einstellungen.</li>
+<li>Prüfen Sie, ob das Band Set die zehn Sentinel-2-Bänder enthält, der passende Training input geladen ist und unter <strong>Use training</strong> weiterhin <strong>Macroclass ID</strong> gewählt ist.</li>
+<li>Stellen Sie für den finalen Lauf <strong>Number of trees</strong> auf <code>500</code> (statt <code>100</code> in der Vorschau). Belassen Sie <strong>Minimum number to split</strong> auf <code>2</code>, setzen Sie <strong>Max features</strong> auf <code>sqrt</code> und aktivieren Sie <strong>Cross validation</strong>. Lassen Sie <strong>Use input normalization</strong> ausgeschaltet (siehe <a href="#fig-rf-classification-start" class="quarto-xref">Abbildung&nbsp;<span>6.5</span></a>).</li>
 </ol>
 <div id="fig-rf-classification-start" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -750,7 +750,7 @@ Abbildung&nbsp;6.5: Einstellungen für die Random-Forest-Klassifikation im SCP C
 <ol start="4" type="1">
 <li>Klicken Sie auf <strong>RUN</strong>.</li>
 <li>Speichern Sie die Klassifikation als <code>04_ergebnisse/S2_20250614/rf_classification.tif</code>.</li>
-<li>Speichern Sie im selben Ordner den trainierten Klassifikator über <strong>Save classifier</strong></li>
+<li>Speichern Sie den trainierten Klassifikator über <strong>Save classifier</strong> im selben Ordner.</li>
 </ol>
 </section>
 <section id="ergebnis-nachbearbeiten" class="level2" data-number="6.7">
@@ -758,25 +758,25 @@ Abbildung&nbsp;6.5: Einstellungen für die Random-Forest-Klassifikation im SCP C
 <p>Klassifikationen enthalten häufig einzelne, verstreute Pixel. Dieser <strong>Salt-and-Pepper-Effekt</strong> lässt sich mit <strong>Sieve</strong> reduzieren. Das Werkzeug ersetzt sehr kleine Pixelgruppen durch die Klasse der größten angrenzenden Fläche.</p>
 <ol type="1">
 <li><p>Öffnen Sie <span class="qgis-command">SCP &gt; Band set</span>.</p></li>
-<li><p>Erstellen Sie ein neues Band Set und fügen Sie das Klassifikationsergebnis als einziges Band hinzu.</p></li>
+<li><p>Erstellen Sie ein neues Band Set und fügen Sie nur die rohe Klassifikation <code>rf_classification.tif</code> hinzu. Das Sentinel-2-Band-Set bleibt unverändert.</p></li>
 <li><p>Öffnen Sie <span class="qgis-command">SCP &gt; Band processing &gt; Sieve</span>.</p></li>
 <li><p>Wählen Sie unter <strong>Select input band set</strong> das neue Band Set mit der Klassifikation.</p></li>
 <li><p>Tragen Sie bei <strong>Size threshold</strong> den Wert <code>2</code> ein. Damit werden zunächst nur isolierte Einzelpixel ersetzt.</p></li>
 <li><p>Wählen Sie bei <strong>Pixel connection</strong> den Wert <code>8</code>. Diagonal benachbarte Pixel gelten damit als zusammenhängend.</p></li>
-<li><p>Tragen Sie als <strong>Output name</strong> <code>sieve_</code> ein und lassen Sie <strong>Virtual output</strong> deaktiviert.</p></li>
-<li><p>Klicken Sie auf <strong>RUN</strong> und speichern Sie das Ergebnis als <code>04_ergebnisse/S2_20250614/rf_classification_sieve.tif</code>.</p></li>
+<li><p>Tragen Sie unter <strong>Output name</strong> das Präfix <code>sieve_</code> ein und lassen Sie <strong>Virtual output</strong> deaktiviert.</p></li>
+<li><p>Klicken Sie auf <strong>RUN</strong> und wählen Sie den Ausgabeordner <code>04_ergebnisse/S2_20250614/</code>. SCP setzt das Präfix vor den Eingabenamen, beispielsweise <code>sieve_rf_classification.tif</code>.</p></li>
 <li><p>Erhöhen Sie den Schwellenwert nur vorsichtig, wenn noch viele isolierte Pixel verbleiben. Mit zunehmendem Wert können auch reale kleine Flächen verloren gehen.</p></li>
 <li><p>Öffnen Sie <span class="qgis-command">SCP &gt; Band set</span> und erstellen Sie ein neues Band Set.</p></li>
-<li><p>Aktualisieren Sie die Layerliste und fügen Sie nur <code>rf_classification_sieve.tif</code> hinzu.</p></li>
+<li><p>Aktualisieren Sie die Layerliste und fügen Sie nur das in Schritt 8 erzeugte Sieve-Raster hinzu.</p></li>
 <li><p>Aktivieren Sie dieses Band Set. Der nachbearbeitete Sieve-Output ist nun das erste und einzige Band.</p></li>
 </ol>
 </section>
 <section id="klassifikationsreport-erstellen" class="level2" data-number="6.8">
 <h2 data-number="6.8" class="anchored" data-anchor-id="klassifikationsreport-erstellen"><span class="header-section-number">6.8</span> Klassifikationsreport erstellen</h2>
-<p>Der Klassifikationsreport liefert direkte Hinweise auf die Flächenanteile im Untersuchungsraum. Gerade für Veränderungsanalysen ist er ein geeignetes Mittel zur Flächenbilanzierung.</p>
+<p>Der Klassifikationsreport zeigt die kartierten Flächenanteile im Untersuchungsraum. Er sagt nicht, wie genau die Klassifikation ist. Das wird in Einheit 7 geprüft.</p>
 <ol type="1">
 <li>Öffnen Sie <span class="qgis-command">SCP &gt; Postprocessing &gt; Classification report</span>.</li>
-<li>Wählen Sie unter <strong>Select the classification</strong> die Datei <code>rf_classification_sieve.tif</code>.</li>
+<li>Wählen Sie unter <strong>Select the classification</strong> das Sieve-Raster, nicht die rohe Klassifikation <code>rf_classification.tif</code>.</li>
 <li>Aktivieren Sie <strong>Use value as NoData</strong> und tragen Sie <code>0</code> ein, falls <code>0</code> in Ihrer Klassifikation den Hintergrund bezeichnet.</li>
 <li>Klicken Sie auf <strong>RUN</strong> und speichern Sie die .csv-Datei ab.</li>
 <li>Prüfen Sie im SCP-Tab <strong>Output</strong> für jede Klasse Pixelzahl, Fläche und Anteil.</li>
